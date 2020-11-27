@@ -34,7 +34,7 @@ public class TCameraController : MonoBehaviour
     private Vector3 _shakeBonus;
 
 
-    // Update is called once per frame
+    // Update is called once per frame // NO CO TY
     void Update()
     {
         if (_target == null)
