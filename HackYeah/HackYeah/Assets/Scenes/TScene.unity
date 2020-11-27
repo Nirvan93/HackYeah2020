@@ -416,7 +416,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 124
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!114 &1130135262
 MonoBehaviour:
@@ -719,6 +719,7 @@ MonoBehaviour:
   _offsetPositon: {x: 0, y: 0, z: -10}
   _maximumSpeedToHandle: 50
   _zDistanceRange: {x: 10, y: 40}
+  _directionBonusRange: {x: 3, y: 15}
 --- !u!1 &1906345098
 GameObject:
   m_ObjectHideFlags: 0

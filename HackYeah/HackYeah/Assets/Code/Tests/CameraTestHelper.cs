@@ -19,6 +19,7 @@ public class CameraTestHelper : MonoBehaviour
     void FixedUpdate()
     {
         float horizontal = Input.GetAxis("Horizontal");
-        _rigidbody.velocity = Vector3.right * horizontal * _speed;
+        float vertical = Input.GetAxis("Vertical");
+        _rigidbody.velocity =(Vector3.right * horizontal + Vector3.up * vertical) * _speed;
     }
 }

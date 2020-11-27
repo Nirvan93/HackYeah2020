@@ -22,7 +22,10 @@ public class TCameraController : MonoBehaviour
     private float _minimumSpeedToHandle = 0f;
 
     [SerializeField]
-    private Vector2 _zDistanceRange = new Vector2(-10, -40);
+    private Vector2 _zDistanceRange = new Vector2(10, 40);
+
+    [SerializeField]
+    private Vector2 _directionBonusRange = new Vector2(0, 10);
 
     // Camera shake
     private float _shakeTime = 0;
@@ -77,7 +80,7 @@ public class TCameraController : MonoBehaviour
         {
             float currentTargetSpeed = _targetRigidbody.velocity.magnitude;
             float speedFactor = Mathf.InverseLerp(_minimumSpeedToHandle, _maximumSpeedToHandle, currentTargetSpeed);
-            Debug.Log("Current speed " + currentTargetSpeed + " speed factor " + speedFactor);
+            //Debug.Log("Current speed " + currentTargetSpeed + " speed factor " + speedFactor);
             _calculatedBonus.z = Mathf.Lerp(_zDistanceRange.x, _zDistanceRange.y, speedFactor) * -1;
         }
     }
@@ -86,8 +89,19 @@ public class TCameraController : MonoBehaviour
     {
         if (_targetRigidbody != null)
         {
-            ///UWAGA TU BEDZIE ZMIENIONE ALE CHODZI O TO ZEBY BYLO WIDAC WIECEJ W KIERUNKU W KTORYM SIE RUSZA
-            _calculatedBonus.x = Mathf.Clamp(_targetRigidbody.velocity.x, -10, 10); 
+            float currentTargetSpeed = _targetRigidbody.velocity.magnitude;
+            if(currentTargetSpeed<1)
+            {
+                _calculatedBonus.x = 0;
+                _calculatedBonus.y = 0;
+                return;
+            }
+
+            float speedFactor = Mathf.InverseLerp(_minimumSpeedToHandle, _maximumSpeedToHandle, currentTargetSpeed);
+
+            Vector3 directionBonus = _targetRigidbody.velocity.normalized * Mathf.Lerp(_directionBonusRange.x, _directionBonusRange.y, speedFactor);
+            _calculatedBonus.x = directionBonus.x;
+            _calculatedBonus.y = directionBonus.y;
         }
     }
 
