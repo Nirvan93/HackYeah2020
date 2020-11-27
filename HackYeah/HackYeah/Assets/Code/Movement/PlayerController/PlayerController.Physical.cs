@@ -11,37 +11,51 @@ public partial class PlayerController
     protected Rigidbody rigbody;
     protected CapsuleCollider capsuleCollider;
 
+    public bool SwitchOffGravity = false;
+
     private void PhysicsCalculations()
     {
-        Vector3 velocityMemory = rigbody.velocity;
-        Vector3 targetVelo = smoothedAcceleration * Preset.MaxSpeed;
-
-        // Gravity -----------------------
-        if (Preset.Gravity != 1f)
+        if (Motor.targetPos != Vector3.zero)
         {
-            rigbody.useGravity = false;
-            rigbody.AddForce(Physics.gravity * rigbody.mass * Preset.Gravity);
+            //rigbody.velocity = (Motor.Output - rigbody.position) * 14f;
+            rigbody.useGravity = !SwitchOffGravity;
         }
-        else rigbody.useGravity = true;
-
-
-        // Jumping -----------------------
-        if (triggerJumping != 0f)
+        else
         {
-            targetVelo.y = triggerJumping;
-            rigbody.MovePosition(rigbody.position + transform.up * triggerJumping * 0.01f);
-            OnJump();
-            triggerJumping = 0f;
-            isGrounded = false;
+            Vector3 velocityMemory = rigbody.velocity;
+            Vector3 targetVelo = smoothedAcceleration * Preset.MaxSpeed;
+
+            // Gravity -----------------------
+            if (!SwitchOffGravity)
+            {
+                if (Preset.Gravity != 1f)
+                {
+                    rigbody.useGravity = false;
+                    rigbody.AddForce(Physics.gravity * rigbody.mass * Preset.Gravity);
+                }
+                else rigbody.useGravity = true;
+            }
+            else
+                rigbody.useGravity = false;
+
+
+            // Jumping -----------------------
+            if (triggerJumping != 0f)
+            {
+                targetVelo.y = triggerJumping;
+                rigbody.MovePosition(rigbody.position + transform.up * triggerJumping * 0.01f);
+                OnJump();
+                triggerJumping = 0f;
+                isGrounded = false;
+            }
+            else targetVelo.y = velocityMemory.y;
+
+            // Apply -----------------------
+            if (!isGrounded || targetVelo.sqrMagnitude > Preset.MaxSpeed * 0.2f) capsuleCollider.material = MSlide; else capsuleCollider.material = MFriction;
+
+            rigbody.velocity = targetVelo;
+            rigbody.angularVelocity = ToAngularVelocity(currentRotation * Quaternion.Inverse(rigbody.rotation)) / Time.fixedDeltaTime;
         }
-        else targetVelo.y = velocityMemory.y;
-
-        // Apply -----------------------
-        if (!isGrounded || targetVelo.sqrMagnitude > Preset.MaxSpeed * 0.2f) capsuleCollider.material = MSlide; else capsuleCollider.material = MFriction;
-
-        rigbody.velocity = targetVelo;
-        rigbody.angularVelocity = ToAngularVelocity(currentRotation * Quaternion.Inverse(rigbody.rotation)) / Time.fixedDeltaTime;
-
     }
 
 
