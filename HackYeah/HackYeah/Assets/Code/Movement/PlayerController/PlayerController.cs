@@ -19,14 +19,16 @@ public partial class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        CustomMotorUpdate();
-        UpdateInput();
-        UpdateMotor();
+        if (updateMovement)
+        {
+            UpdateInput();
+            UpdateMotor();
+        }
     }
 
     private void FixedUpdate()
     {
-        PhysicsCalculations();
+        if ( updateMovement) PhysicsCalculations();
     }
 
     internal Rigidbody R { get { return rigbody; } }

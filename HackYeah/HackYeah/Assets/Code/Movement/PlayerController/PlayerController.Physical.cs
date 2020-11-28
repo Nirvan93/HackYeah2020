@@ -10,15 +10,29 @@ public partial class PlayerController
 
     protected Rigidbody rigbody;
     protected CapsuleCollider capsuleCollider;
+    protected bool updateMovement = true;
 
     public bool SwitchOffGravity = false;
 
+    public void SwitchBasicPhysicsLogics(bool turnOn)
+    {
+        updateMovement = turnOn;
+    }
+
+    private Vector3 overrideVelo = Vector3.zero;
+    public void OverrideVelocity(Vector3 velo)
+    {
+        overrideVelo = velo;
+    }
+
+
     private void PhysicsCalculations()
     {
-        if (Motor.targetPos != Vector3.zero)
+        if (overrideVelo != Vector3.zero)
         {
-            rigbody.velocity = (Motor.Output) * 14f;
+            rigbody.velocity = overrideVelo;
             rigbody.useGravity = !SwitchOffGravity;
+            overrideVelo = Vector3.zero;
         }
         else
         {

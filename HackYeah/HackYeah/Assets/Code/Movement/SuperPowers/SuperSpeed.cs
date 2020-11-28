@@ -10,6 +10,7 @@ public class SuperSpeed : MonoBehaviour
     public float DrawPointInterval = 0.25f;
     public float OnePointMoveDur = 0.05f;
     public LineRenderer line;
+    public MovementMotor Motor;
 
     private bool drawing = false;
     private float drawElapsed = 0f;
@@ -36,9 +37,11 @@ public class SuperSpeed : MonoBehaviour
         }
     }
 
+
     void UpdateDrawing()
     {
         drawElapsed += Time.deltaTime;
+        drawedPath[0] = Player.transform.position;
         drawedPath[drawingPoints - 1] = GetCursorPosition();
         line.positionCount = drawingPoints;
         line.SetPositions(drawedPath.ToArray());
@@ -64,7 +67,7 @@ public class SuperSpeed : MonoBehaviour
         drawElapsed = 0f;
         drawInterval = 0f;
 
-        drawedPath.Add(GetCursorPosition());
+        drawedPath.Add(Player.transform.position);
         drawedPath.Add(GetCursorPosition());
         drawingPoints = 2;
     }
@@ -120,19 +123,20 @@ public class SuperSpeed : MonoBehaviour
 
                 Vector3 currentDir = (veloPoint - Player.transform.position).normalized;
                 float dot = Vector3.Dot(initDir, currentDir);
-                //Debug.Log("Dot " + dot);
                 if (dot < 0.2f) break;
 
-                //PlayerController.Instance.R.MovePosition(veloPoint);
-                PlayerController.Instance.Motor.targetPos = veloPoint;
                 //PlayerController.Instance.Motor.RushAcceleration(Vector3.Distance(startJumpPos, veloPoint));
+                Motor.targetPos = veloPoint;
+                Motor.Update(Player.transform.position);
+                Player.OverrideVelocity(Motor.Output * 14f);
 
                 if (progress > 1f) break;
                 yield return null;
             }
         }
 
-        PlayerController.Instance.Motor.targetPos = Vector3.zero;
+        Motor.Reset();
+        Motor.targetPos = Vector3.zero;
         PlayerController.Instance.SwitchOffGravity = false;
     }
 
