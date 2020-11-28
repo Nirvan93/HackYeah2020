@@ -95,8 +95,8 @@ public partial class PlayerController
                 Debug.Log("rel dot = " + relDot);
                 Debug.Log("rel velo = " + collision.relativeVelocity + " magn = " + collision.relativeVelocity.magnitude);
 
-                //if (relDot > 0.3f && relDot < 0.7f) { }
-                //else
+                if (relDot > 0.3f && relDot < 0.7f) { }
+                else
                 {
                     if (collision.relativeVelocity.magnitude > KillVelocity)
                     {
