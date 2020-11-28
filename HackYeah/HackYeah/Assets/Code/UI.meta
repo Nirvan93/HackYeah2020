@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:HackYeah/HackYeah/Assets/Code/UI.meta
+guid: 3d6e6b2445d54024bb2aa7de2390b2d9
+=======
 guid: 686cca892107e39479c7b54a5551a33e
+>>>>>>> c8ff156bfd426d4eab61c46d367d7285d9a5020c:HackYeah/HackYeah/Assets/Graphics/UI.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
