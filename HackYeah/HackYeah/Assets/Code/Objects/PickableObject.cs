@@ -14,6 +14,7 @@ public class PickableObject : MonoBehaviour
         foreach(Collider coll in GetComponentsInChildren<Collider>())
         {
             _objectColliders.Add(coll);
+            Physics.IgnoreCollision(coll, PlayerController.Instance.capsuleCollider);
         }
     }
 

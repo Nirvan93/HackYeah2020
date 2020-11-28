@@ -10,7 +10,7 @@ public partial class PlayerController
     protected float triggerJumping = 0f;
 
     protected Rigidbody rigbody;
-    protected CapsuleCollider capsuleCollider;
+    internal CapsuleCollider capsuleCollider;
     protected bool updateMovement = true;
 
     public bool SwitchOffGravity = false;
