@@ -28,6 +28,7 @@ public partial class PlayerController : MonoBehaviour
         }
 
         UpdateGlowEffect();
+        UpdateAnimating();
     }
 
     private void FixedUpdate()

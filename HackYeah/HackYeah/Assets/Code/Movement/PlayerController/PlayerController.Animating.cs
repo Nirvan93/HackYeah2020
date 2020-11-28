@@ -28,7 +28,7 @@ public partial class PlayerController
     {
         if (Mathf.Abs(rigbody.velocity.x) > Mathf.Abs(rigbody.velocity.y))
         {
-            if (rigbody.velocity.x > 0.1f)
+            if (Mathf.Abs(rigbody.velocity.x) > 0.1f)
                 Animation_Run();
             else
                 Animation_Idle();
