@@ -10,7 +10,7 @@ public partial class PlayerController
     protected float triggerJumping = 0f;
 
     protected Rigidbody rigbody;
-    protected CapsuleCollider capsuleCollider;
+    internal CapsuleCollider capsuleCollider;
     protected bool updateMovement = true;
 
     public bool SwitchOffGravity = false;
@@ -95,13 +95,14 @@ public partial class PlayerController
                 //Debug.Log("rel dot = " + relDot);
                 //Debug.Log("rel velo = " + collision.relativeVelocity + " magn = " + collision.relativeVelocity.magnitude);
 
-                if (relDot > 0.3f && relDot < 0.7f) { }
+                if (relDot > 0.3f && relDot < 0.7f) 
+                { 
+                }
                 else
                 {
                     if (collision.relativeVelocity.magnitude > KillVelocity)
                     {
-                        TCameraController.Instance.ScreenShake(collision.relativeVelocity.magnitude / 5f, 0.194f + collision.relativeVelocity.magnitude /111f);
-
+                        TCameraController.Instance.ScreenShake(1f + collision.relativeVelocity.magnitude / 14f, 0.1f + collision.relativeVelocity.magnitude /250f);
 
                         SwitchRagdoll(true,true);
                         AddForceToRagdollBodies(-collision.relativeVelocity * 2f);

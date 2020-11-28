@@ -9,13 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2733006130912631519}
-  - component: {fileID: 5781890161824032580}
   m_Layer: 8
   m_Name: Building1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2733006130912631519
 Transform:
@@ -34,42 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &5781890161824032580
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1420550608373803212}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: -8677809526040868574, guid: 8a56502f2c58f8b47835ef51923c1bf5,
-    type: 3}
-  m_Animations:
-  - {fileID: 6278029279821259226, guid: 8a56502f2c58f8b47835ef51923c1bf5, type: 3}
-  - {fileID: -8515560403302317629, guid: 8a56502f2c58f8b47835ef51923c1bf5, type: 3}
-  - {fileID: -4064532029014869935, guid: 8a56502f2c58f8b47835ef51923c1bf5, type: 3}
-  - {fileID: 228470328875462131, guid: 8a56502f2c58f8b47835ef51923c1bf5, type: 3}
-  - {fileID: 1391493248101175380, guid: 8a56502f2c58f8b47835ef51923c1bf5, type: 3}
-  - {fileID: -3141306089722208731, guid: 8a56502f2c58f8b47835ef51923c1bf5, type: 3}
-  - {fileID: 7251931228910204281, guid: 8a56502f2c58f8b47835ef51923c1bf5, type: 3}
-  - {fileID: 2489026849005394222, guid: 8a56502f2c58f8b47835ef51923c1bf5, type: 3}
-  - {fileID: 3010928043876789573, guid: 8a56502f2c58f8b47835ef51923c1bf5, type: 3}
-  - {fileID: 1316293240742506420, guid: 8a56502f2c58f8b47835ef51923c1bf5, type: 3}
-  - {fileID: 5379404546726051745, guid: 8a56502f2c58f8b47835ef51923c1bf5, type: 3}
-  - {fileID: -3886005638583509873, guid: 8a56502f2c58f8b47835ef51923c1bf5, type: 3}
-  - {fileID: 6719344618709153835, guid: 8a56502f2c58f8b47835ef51923c1bf5, type: 3}
-  - {fileID: -7745175847028263405, guid: 8a56502f2c58f8b47835ef51923c1bf5, type: 3}
-  - {fileID: -6685595303451422087, guid: 8a56502f2c58f8b47835ef51923c1bf5, type: 3}
-  - {fileID: 5269535290544798458, guid: 8a56502f2c58f8b47835ef51923c1bf5, type: 3}
-  - {fileID: 828423621702795731, guid: 8a56502f2c58f8b47835ef51923c1bf5, type: 3}
-  - {fileID: 6234383417336353069, guid: 8a56502f2c58f8b47835ef51923c1bf5, type: 3}
-  - {fileID: -6340570818559551551, guid: 8a56502f2c58f8b47835ef51923c1bf5, type: 3}
-  - {fileID: -8677809526040868574, guid: 8a56502f2c58f8b47835ef51923c1bf5, type: 3}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &2226096316259092475
 GameObject:
   m_ObjectHideFlags: 0
@@ -84,7 +47,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5067307441070561100
 Transform:
@@ -117,7 +80,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1873655333698436491
 Transform:
@@ -205,13 +168,13 @@ GameObject:
   - component: {fileID: 656070405395604145}
   - component: {fileID: 1435367103240256255}
   - component: {fileID: 2232312207038795585}
-  - component: {fileID: 6960069502215827929}
+  - component: {fileID: 950441493152446695}
   m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &656070405395604145
 Transform:
@@ -274,8 +237,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &6960069502215827929
-MeshCollider:
+--- !u!65 &950441493152446695
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -284,7 +247,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5495902117074765545, guid: 8a56502f2c58f8b47835ef51923c1bf5, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 2.9893134, y: 3.7501438, z: 2.9893134}
+  m_Center: {x: 0, y: 1.8750001, z: 0}

@@ -11,10 +11,13 @@ public class PickableObject : MonoBehaviour
 
     public void Start()
     {
+        gameObject.layer = LayerMask.NameToLayer("Throwable");
         foreach(Collider coll in GetComponentsInChildren<Collider>())
         {
             _objectColliders.Add(coll);
+            coll.gameObject.layer = gameObject.layer;
         }
+
     }
 
 
