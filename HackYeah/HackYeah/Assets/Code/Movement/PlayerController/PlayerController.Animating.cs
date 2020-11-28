@@ -24,4 +24,23 @@ public partial class PlayerController
         animator.CrossFade("Falling", 0.2f);
     }
 
+    void UpdateAnimating()
+    {
+        if (Mathf.Abs(rigbody.velocity.x) > Mathf.Abs(rigbody.velocity.y))
+        {
+            if (rigbody.velocity.x > 0.1f)
+                Animation_Run();
+            else
+                Animation_Idle();
+        }
+        else if(!IsGrounded)
+        {
+            if (rigbody.velocity.y > 0.1f)
+                Animation_Jump();
+            else if (rigbody.velocity.y < 0f)
+                Animation_Falling();
+        }
+
+    }
+
 }
