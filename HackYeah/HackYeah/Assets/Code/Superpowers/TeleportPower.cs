@@ -37,6 +37,7 @@ public class TeleportPower : SuperPower
 
         _playerController.transform.rotation = Quaternion.Euler(_playerController.transform.rotation.eulerAngles.x, 180, _playerController.transform.rotation.eulerAngles.z);
         Time.timeScale = 0.0f;
+
         _playerController.SwitchRagdoll(true);
         BodyPartCollection.Instance.StartClicking();
 

@@ -7,6 +7,9 @@ public class DeactivateAfterTime : MonoBehaviour
     [SerializeField]
     private float _deactivationTime = 5f;
 
+    [SerializeField]
+    private bool _destroy = false;
+
     private void OnEnable()
     {
         StartCoroutine(Deactivate());
@@ -20,6 +23,9 @@ public class DeactivateAfterTime : MonoBehaviour
     private IEnumerator Deactivate()
     {
         yield return new WaitForSeconds(_deactivationTime);
-        gameObject.SetActive(false);
+        if (_destroy)
+            Destroy(gameObject);
+        else
+            gameObject.SetActive(false);
     }
 }
