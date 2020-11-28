@@ -117,7 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SuperPowerType: 2
   KeyCodeToActivate: 52
-  IsAvailable: 1
+  IsAvailable: 0
   _teleportTime: 4
 --- !u!114 &176849717
 MonoBehaviour:

@@ -33,21 +33,22 @@ public class EnemyPlaneLanded : MonoBehaviour
     void Start()
     {
         startPosition = transform.position;
+        leftRot = Quaternion.Euler(0, -90, 0);
+        rightRot = Quaternion.Euler(0, -270, 0);
     }
 
     void Update()
     {
 
-        leftRot = Quaternion.Euler(0, -90, 0);
-        rightRot = Quaternion.Euler(0, -270, 0);
+        
 
 
         switch (aiState)
         {
             case AIState.Flying:
 
-                float ySpeed = 0.2f + Mathf.PerlinNoise(112f, Time.time) * 0.3f;
-                targetVelocity = new Vector3(directionValue, ySpeed, 0);
+               // float ySpeed = 0.2f + Mathf.PerlinNoise(112f, Time.time) * 0.3f;
+             //   targetVelocity = new Vector3(directionValue, ySpeed, 0);
 
                 if(transform.position.y>FlyLimit.y)
                 {
@@ -69,9 +70,11 @@ public class EnemyPlaneLanded : MonoBehaviour
                     directionValue = 1;
                 else
                     directionValue = -1;
+                
+                targetVelocity.y = 1;
 
 
-                if (elapsed > 10f)
+                if (elapsed > 100f)
                 {
                     aiState = AIState.Landing;
                     elapsed = 0f;
@@ -84,7 +87,10 @@ public class EnemyPlaneLanded : MonoBehaviour
                 GroundDetection();
                 targetVelocity = new Vector3(directionValue, -1f, 0);
                 if (isGrounded)
+                {
                     aiState = AIState.Standing;
+                    Debug.Log("Błąd");
+                }
                 break;
 
             case AIState.Standing:
@@ -140,7 +146,7 @@ public class EnemyPlaneLanded : MonoBehaviour
 
         if (isGrounded)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(.5f);
         }
 
         aiState = AIState.Flying;
