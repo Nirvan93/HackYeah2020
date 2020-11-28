@@ -14,6 +14,7 @@ public class Flying : MonoBehaviour
     public float GravityPush = 1f;
     public Vector3 Finalvelo = Vector3.zero;
     private bool EnableFlying = false;
+    Quaternion targetRot;
 
     void Update()
     {
@@ -54,6 +55,7 @@ public class Flying : MonoBehaviour
         EnableFlying = enable;
         sd_velo = Vector3.zero;
         flyVelo = Vector3.zero;
+        targetRot = PlayerController.Instance.transform.rotation;
     }
 
     private Vector3 sd_velo = Vector3.zero;
