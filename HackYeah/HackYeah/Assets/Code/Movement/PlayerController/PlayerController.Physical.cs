@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.AssetImporters;
 using UnityEngine;
 
 public partial class PlayerController
@@ -13,6 +14,8 @@ public partial class PlayerController
     protected bool updateMovement = true;
 
     public bool SwitchOffGravity = false;
+    private Vector3 previousVelo;
+    private Vector3 previousVelo2;
 
     public void SwitchBasicPhysicsLogics(bool turnOn)
     {
@@ -70,15 +73,25 @@ public partial class PlayerController
             rigbody.velocity = targetVelo;
             rigbody.angularVelocity = ToAngularVelocity(currentRotation * Quaternion.Inverse(rigbody.rotation)) / Time.fixedDeltaTime;
         }
+
+        previousVelo2 = previousVelo;
+        previousVelo = rigbody.velocity;
     }
 
-
+    public float KillVelocity = 100f;
     private void OnCollisionEnter(Collision collision)
     {
-        if (!IsGrounded)
-            if (collision != null)
-                if (collision.contacts.Length > 0)
+        if (collision != null)
+            if (collision.contacts.Length > 0)
+            {
+                Debug.Log("rel velo = " + collision.relativeVelocity + " magn = " + collision.relativeVelocity.magnitude);
+                if (collision.relativeVelocity.magnitude > KillVelocity)
                 {
+                    SwitchRagdoll(true);
+                    AddForceToRagdollBodies(-collision.relativeVelocity * 2f);
+                }
+
+                if (!IsGrounded)
                     for (int i = 0; i < collision.contacts.Length; i++)
                     {
                         float dot = Vector3.Dot(Vector3.up, collision.contacts[i].normal);
@@ -88,7 +101,7 @@ public partial class PlayerController
                             return;
                         }
                     }
-                }
+            }
     }
 
     private Vector3 ToAngularVelocity(Quaternion deltaRotation)

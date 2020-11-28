@@ -311,6 +311,97 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &226906418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 226906419}
+  - component: {fileID: 226906422}
+  - component: {fileID: 226906421}
+  - component: {fileID: 226906420}
+  m_Layer: 5
+  m_Name: Teleport
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &226906419
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226906418}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 863132455}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &226906420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226906418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a546c6443e8777a4baa488c1028f3164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SuperPowerType: 2
+  _notActivatedSize: 60
+  _activatedSize: 120
+  _powerRect: {fileID: 226906419}
+--- !u!114 &226906421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226906418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &226906422
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226906418}
+  m_CullTransparentMesh: 0
 --- !u!1 &243015228
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,6 +506,7 @@ GameObject:
   - component: {fileID: 261059849}
   - component: {fileID: 261059852}
   - component: {fileID: 261059851}
+  - component: {fileID: 261059853}
   m_Layer: 0
   m_Name: SuperPowers
   m_TagString: Untagged
@@ -470,6 +562,7 @@ MonoBehaviour:
   - {fileID: 261059849}
   - {fileID: 261059851}
   - {fileID: 261059852}
+  - {fileID: 261059853}
   _playerController: {fileID: 878459595}
 --- !u!114 &261059851
 MonoBehaviour:
@@ -501,6 +594,22 @@ MonoBehaviour:
   SuperPowerType: 0
   KeyCodeToActivate: 50
   IsAvailable: 1
+--- !u!114 &261059853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261059847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f6ced64539b2f147a08fe7f14ab20dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SuperPowerType: 2
+  KeyCodeToActivate: 52
+  IsAvailable: 1
+  _teleportTime: 4
 --- !u!1 &290103500
 GameObject:
   m_ObjectHideFlags: 0
@@ -1739,6 +1848,7 @@ RectTransform:
   - {fileID: 1669490180}
   - {fileID: 1645538227}
   - {fileID: 1703560039}
+  - {fileID: 226906419}
   m_Father: {fileID: 1628083316}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3805,6 +3915,7 @@ MonoBehaviour:
   - {fileID: 1669490183}
   - {fileID: 1645538230}
   - {fileID: 243015232}
+  - {fileID: 226906420}
 --- !u!1 &1637379480
 GameObject:
   m_ObjectHideFlags: 0
