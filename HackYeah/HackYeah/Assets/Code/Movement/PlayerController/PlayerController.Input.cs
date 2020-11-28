@@ -24,6 +24,13 @@ public partial class PlayerController
         //    {
         //        triggerJumping = 8f;
         //    }
+
+        //Objects
+        if (Input.GetKeyDown(KeyCode.E))
+            PlayerWantsToPickAnyObject();
+
+        if (Input.GetMouseButtonDown(1))
+            ThrowObject();
     }
 
     public void SetJumpInput(float jumpPower)
