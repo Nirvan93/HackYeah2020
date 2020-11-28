@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.18066926, g: 0.2119749, b: 0.26415092, a: 1}
+  m_AmbientSkyColor: {r: 0.14431292, g: 0.17199603, b: 0.21698111, a: 1}
   m_AmbientEquatorColor: {r: 0.12241901, g: 0.16026609, b: 0.1981132, a: 1}
   m_AmbientGroundColor: {r: 0.13443397, g: 0.150729, b: 0.1792453, a: 1}
   m_AmbientIntensity: 1
@@ -267,12 +267,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsGrounded: 0
   SwitchOffGravity: 0
+  KillVelocity: 100
   SkelRoot: {fileID: 0}
   BreakJointForce: 10
   Preset: {fileID: 11400000, guid: 30a6b4a8f0c687942bca2584f66fe63c, type: 2}
   MFriction: {fileID: 13400000, guid: 2d934572826ac664aa94739e1587dddb, type: 2}
   MSlide: {fileID: 13400000, guid: 8ccff03ad1391ef4aad1d905f646c8df, type: 2}
-  TestPickableObject: {fileID: 0}
   _handTransform: {fileID: 0}
   _normalThrowPower: 30
   _superPowerThrowPower: 80
@@ -336,7 +336,7 @@ Transform:
   m_Children:
   - {fileID: 537482292}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &130169986 stripped
 GameObject:
@@ -690,7 +690,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &309186375 stripped
 GameObject:
@@ -1403,7 +1403,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &953752583
 GameObject:
@@ -1433,7 +1433,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1118737495
 GameObject:
@@ -2017,7 +2017,7 @@ Transform:
   - {fileID: 639354516}
   - {fileID: 1118737496}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1622885363 stripped
 GameObject:
@@ -2039,12 +2039,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsGrounded: 0
   SwitchOffGravity: 0
+  KillVelocity: 20
   SkelRoot: {fileID: 670917105}
-  BreakJointForce: 2781.55
+  BreakJointForce: 3000
   Preset: {fileID: 11400000, guid: 30a6b4a8f0c687942bca2584f66fe63c, type: 2}
   MFriction: {fileID: 13400000, guid: 2d934572826ac664aa94739e1587dddb, type: 2}
   MSlide: {fileID: 13400000, guid: 8ccff03ad1391ef4aad1d905f646c8df, type: 2}
-  TestPickableObject: {fileID: 0}
   _handTransform: {fileID: 0}
   _normalThrowPower: 30
   _superPowerThrowPower: 80
@@ -2318,7 +2318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxDrawingTime: 4
   DrawPointInterval: 0.1
-  OnePointMoveDur: 0.1
+  OnePointMoveDur: 0.15
   line: {fileID: 1669118898}
   Motor:
     maxPower: 150
@@ -2338,7 +2338,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1713669807 stripped
 GameObject:
@@ -2450,7 +2450,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.9386792, g: 0.97839105, b: 1, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.54
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2506,13 +2506,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1716877106}
-  m_LocalRotation: {x: 0.39220706, y: -0.36505282, z: 0.8263023, w: 0.17359297}
+  m_LocalRotation: {x: 0.2313065, y: -0.32629612, z: 0.88492894, w: 0.2385979}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 132.315, y: -129.237, z: -0.04498291}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 136.538, y: -159.544, z: -21.951996}
 --- !u!1 &1726210723
 GameObject:
   m_ObjectHideFlags: 0
@@ -2837,6 +2837,25 @@ CapsuleCollider:
   m_Height: 0.029640421
   m_Direction: 1
   m_Center: {x: -1.3304609e-10, y: 0.011291589, z: -2.660922e-10}
+--- !u!1 &1802687723 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bdf0af37ef357e041846ef96697bb816,
+    type: 3}
+  m_PrefabInstance: {fileID: 1834119474}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1802687724
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802687723}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9696971, y: 0.59582525, z: 1.9913864}
+  m_Center: {x: -0.004848659, y: 0.07324516, z: -0.015693396}
 --- !u!1 &1818225500 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2766782846469271948, guid: ab2bf55e80ed8d44687d11a245236910,
@@ -2918,6 +2937,75 @@ CapsuleCollider:
   m_Height: 0.024544425
   m_Direction: 1
   m_Center: {x: 4.0745363e-10, y: 0.01067149, z: -0.0000000018626451}
+--- !u!1001 &1834119474
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: bdf0af37ef357e041846ef96697bb816,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bdf0af37ef357e041846ef96697bb816,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.61
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bdf0af37ef357e041846ef96697bb816,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.028298378
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bdf0af37ef357e041846ef96697bb816,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bdf0af37ef357e041846ef96697bb816,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bdf0af37ef357e041846ef96697bb816,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bdf0af37ef357e041846ef96697bb816,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bdf0af37ef357e041846ef96697bb816,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bdf0af37ef357e041846ef96697bb816,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bdf0af37ef357e041846ef96697bb816,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bdf0af37ef357e041846ef96697bb816,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bdf0af37ef357e041846ef96697bb816,
+        type: 3}
+      propertyPath: m_Name
+      value: PizzaBox
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bdf0af37ef357e041846ef96697bb816, type: 3}
 --- !u!1 &1877308447 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8349041677374033224, guid: ab2bf55e80ed8d44687d11a245236910,
@@ -3342,7 +3430,7 @@ Transform:
   m_Children:
   - {fileID: 405116263}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2079118667
 MonoBehaviour:
@@ -3358,12 +3446,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsGrounded: 0
   SwitchOffGravity: 0
+  KillVelocity: 100
   SkelRoot: {fileID: 0}
   BreakJointForce: 10
   Preset: {fileID: 11400000, guid: 30a6b4a8f0c687942bca2584f66fe63c, type: 2}
   MFriction: {fileID: 13400000, guid: 2d934572826ac664aa94739e1587dddb, type: 2}
   MSlide: {fileID: 13400000, guid: 8ccff03ad1391ef4aad1d905f646c8df, type: 2}
-  TestPickableObject: {fileID: 0}
   _handTransform: {fileID: 0}
   _normalThrowPower: 30
   _superPowerThrowPower: 80
@@ -3533,12 +3621,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsGrounded: 0
   SwitchOffGravity: 0
+  KillVelocity: 100
   SkelRoot: {fileID: 0}
   BreakJointForce: 10
   Preset: {fileID: 11400000, guid: 30a6b4a8f0c687942bca2584f66fe63c, type: 2}
   MFriction: {fileID: 13400000, guid: 2d934572826ac664aa94739e1587dddb, type: 2}
   MSlide: {fileID: 13400000, guid: 8ccff03ad1391ef4aad1d905f646c8df, type: 2}
-  TestPickableObject: {fileID: 0}
   _handTransform: {fileID: 0}
   _normalThrowPower: 30
   _superPowerThrowPower: 80

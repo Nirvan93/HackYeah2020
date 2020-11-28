@@ -48,4 +48,9 @@ public class PickableObject : MonoBehaviour
             coll.enabled = collidersValue;
         }
     }
+
+    public Vector3 GetVelocity()
+    {
+        return _objectRigidbody.velocity;
+    }
 }
