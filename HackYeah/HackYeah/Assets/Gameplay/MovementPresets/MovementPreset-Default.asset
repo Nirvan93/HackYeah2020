@@ -16,4 +16,4 @@ MonoBehaviour:
   AccelerationDuration: 0.1
   DecelerationDuration: 0.15
   RotationSpeed: 0.25
-  Gravity: 3
+  Gravity: 2
