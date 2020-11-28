@@ -12,8 +12,10 @@ public class GameUiController : Singleton<GameUiController>
         foreach (UiSuperPower superPower in _superPowerIndicators)
         {
             superPower.SetActivatedValue(false);
+            superPower.SetAvailable(SuperpowersManager.Instance.IsSuperPowerAvailable(superPower.SuperPowerType));
         }
     }
+
 
 
     public void SetSuperPowerActivated(ESuperPowerType superPowerType)
