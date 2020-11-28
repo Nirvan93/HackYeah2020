@@ -15,6 +15,7 @@ public partial class PlayerController : MonoBehaviour
     private void Start()
     {
         Initialize();
+        InitRagdoll();
     }
 
     private void Update()
