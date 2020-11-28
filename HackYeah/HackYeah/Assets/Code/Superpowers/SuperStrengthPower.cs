@@ -5,6 +5,12 @@ using UnityEngine;
 public class SuperStrengthPower : SuperPower
 {
     public static bool SuperStrengthPowerActive = false;
+
+    public void Start()
+    {
+        SuperStrengthPowerActive = false;
+    }
+
     public override void OnActivate()
     {
         base.OnActivate();

@@ -48,10 +48,14 @@ public class BodyPart : MonoBehaviour
 
     private void OnJointBreak(float breakForce)
     {
-        if(Particles!=null)
+        if (Particles != null)
         {
-            Particles.SetActive(true);
-            if(Explosion != null)
+            //Particles.SetActive(true);
+            GameObject particles = Instantiate(Particles, transform.position, transform.rotation * Quaternion.Euler(90f,0f,0f));
+            particles.transform.SetParent(transform, true);
+            particles.transform.localScale = Vector3.one;
+
+            if (Explosion != null)
             {
                 GameObject explosion = Instantiate(Explosion, transform.position, Quaternion.identity);
             }
