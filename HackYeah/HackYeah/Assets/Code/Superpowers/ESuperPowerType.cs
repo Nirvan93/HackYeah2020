@@ -10,5 +10,6 @@ public enum ESuperPowerType
     Telekinesis,
     SuperStrength,
     Invisibility,
-    TimeSlow
+    TimeSlow,
+    Flying
 }

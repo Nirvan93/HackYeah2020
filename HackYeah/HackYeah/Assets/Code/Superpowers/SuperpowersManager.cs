@@ -64,4 +64,22 @@ public class SuperpowersManager : Singleton<SuperpowersManager>
         if (GameUiController.Instance != null)
             GameUiController.Instance.SetSuperPowerActivated(superPowerToActivate.SuperPowerType);
     }
+
+    public void SetAvailableSuperPowers(List<ESuperPowerType> superpowersAvailable)
+    {
+        foreach (SuperPower superPower in _allSuperPowers)
+        {
+            superPower.IsAvailable = superpowersAvailable.Contains(superPower.SuperPowerType);
+        }
+    }
+
+    public bool IsSuperPowerAvailable(ESuperPowerType power)
+    {
+        foreach (SuperPower superPower in _allSuperPowers)
+        {
+            if (superPower.SuperPowerType == power)
+                return superPower.IsAvailable;
+        }
+        return false;
+    }
 }

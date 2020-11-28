@@ -41,12 +41,19 @@ public class Flying : MonoBehaviour
         flyVelo = Vector3.SmoothDamp(flyVelo, input * FlySpeed, ref sd_velo, input == Vector3.zero ? DecelerationDur : AccelerationDur);
         flyVelo.y += Time.deltaTime * GravityPush;
 
+        //if (input != Vector3.zero)
+        //{
+        //    Instance.transform.up = flyVelo;
+        //}
     }
 
     private void FixedUpdate()
     {
         if (!EnableFlying) return;
         PlayerController.Instance.R.velocity = flyVelo;
+
+        //PlayerController.Instance.R.angularVelocity = PlayerController.ToAngularVelocity(targetRot * Quaternion.Inverse(PlayerController.Instance.R.rotation)) / (Time.fixedDeltaTime * 5f);
+
     }
 
     public void EnableFly(bool enable)
