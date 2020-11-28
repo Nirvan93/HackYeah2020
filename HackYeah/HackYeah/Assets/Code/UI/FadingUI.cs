@@ -52,4 +52,9 @@ public class FadingUI : MonoBehaviour
     {
         return new Color(col.r, col.b, col.b, alpha);
     }
+
+    public void OnClickRetry()
+    {
+        LevelsManager.Instance.ResetLevel();
+    }
 }

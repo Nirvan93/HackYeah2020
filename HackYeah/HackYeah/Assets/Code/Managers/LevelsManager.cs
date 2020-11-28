@@ -29,4 +29,9 @@ public class LevelsManager : Singleton<LevelsManager>
         SceneManager.LoadScene(sceneName);
     }
 
+    public void ResetLevel()
+    {
+        SelectedLevel(_currentLevelId);
+    }
+
 }

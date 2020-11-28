@@ -76,6 +76,7 @@ public partial class PlayerController
 
         rigbody.isKinematic = turnOnRagdolling;
         GetComponent<Animator>().enabled = !turnOnRagdolling;
+        GameUiController.Instance.ShowFadingUI();
     }
 
 
