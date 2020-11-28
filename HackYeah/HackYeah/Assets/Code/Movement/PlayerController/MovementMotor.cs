@@ -14,6 +14,7 @@ public class MovementMotor
     private Vector3 acceleration;
     private Vector3 targetAcceleration;
     private float motorPower = 0f;
+    internal float Limit = 1f;
 
 
     public void Reset()
@@ -66,5 +67,6 @@ public class MovementMotor
 
         acceleration = Vector3.Lerp(acceleration, targetAcceleration, Time.deltaTime * accelerationSensitivity);
         Output = Vector3.Lerp(Output, acceleration, Time.deltaTime * lerpSpd);
+        if (Output.magnitude > Limit + 1.2f) Output = Output.normalized * (Limit + 1.2f);
     }
 }
