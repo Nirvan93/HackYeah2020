@@ -245,7 +245,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4924b25d2cbe8494c89f646248f2fc0e, type: 2}
+  - {fileID: 2100000, guid: 6f6db9bc7d821c848b916db9421f8c97, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1666,7 +1666,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4924b25d2cbe8494c89f646248f2fc0e, type: 2}
+  - {fileID: 2100000, guid: 6f6db9bc7d821c848b916db9421f8c97, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2151,7 +2151,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5267011956353724543}
   serializedVersion: 2
-  m_Mass: 5
+  m_Mass: 50
   m_Drag: 0.1
   m_AngularDrag: 0.1
   m_UseGravity: 1
@@ -2394,7 +2394,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4924b25d2cbe8494c89f646248f2fc0e, type: 2}
+  - {fileID: 2100000, guid: 6f6db9bc7d821c848b916db9421f8c97, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

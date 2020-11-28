@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AlienController : MonoBehaviour
+public partial class AlienController : MonoBehaviour
 {
     [SerializeField]
     private Transform _shotPoint;
