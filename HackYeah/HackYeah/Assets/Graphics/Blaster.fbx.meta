@@ -3,7 +3,17 @@ guid: 836767175112ca04681d1b799415e672
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Alien
+    second: {fileID: 2100000, guid: 35dd54fddfd48074288443f55d209f76, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plasma_Emmit
+    second: {fileID: 2100000, guid: ac926c0979103fb4c8590b94e99165b0, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
