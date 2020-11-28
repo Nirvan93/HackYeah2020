@@ -5,6 +5,12 @@ using UnityEngine;
 public class SuperSpeedPower : SuperPower
 {
     public static bool SuperSpeedActivated = false;
+
+    public void Start()
+    {
+        SuperSpeedActivated = false;
+    }
+
     public override void OnActivate()
     {
         base.OnActivate();
