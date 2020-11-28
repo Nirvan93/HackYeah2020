@@ -11,11 +11,13 @@ public class PickableObject : MonoBehaviour
 
     public void Start()
     {
+        gameObject.layer = LayerMask.NameToLayer("Throwable");
         foreach(Collider coll in GetComponentsInChildren<Collider>())
         {
             _objectColliders.Add(coll);
-            Physics.IgnoreCollision(coll, PlayerController.Instance.capsuleCollider);
+            coll.gameObject.layer = gameObject.layer;
         }
+
     }
 
 

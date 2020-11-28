@@ -2207,7 +2207,7 @@ MonoBehaviour:
   ToGlow: {fileID: 2100000, guid: a9dacd5c5bbeaab41bbb3b9ebb0f1a2f, type: 2}
   IsGrounded: 0
   SwitchOffGravity: 0
-  KillVelocity: 30
+  KillVelocity: 34
   SkelRoot: {fileID: 4531512420147493467}
   BreakJointForce: 4100
   Preset: {fileID: 11400000, guid: 30a6b4a8f0c687942bca2584f66fe63c, type: 2}

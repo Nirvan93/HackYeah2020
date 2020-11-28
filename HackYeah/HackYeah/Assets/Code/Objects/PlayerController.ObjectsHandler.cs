@@ -92,14 +92,17 @@ public partial class PlayerController
 
     public PickableObject SearchForPickablesNearPlayer()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 5);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 4);
+
         foreach (var hitCollider in hitColliders)
         {
             if (hitCollider.attachedRigidbody == null)
+            {
                 continue;
+            }
 
             PickableObject pickable = hitCollider.attachedRigidbody.GetComponent<PickableObject>();
-            return pickable;
+            if ( pickable != null) return pickable;
         }
 
         return null;

@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1696715720211959053}
-  - component: {fileID: 7087259650983587990}
   m_Layer: 8
   m_Name: FanBox
   m_TagString: Untagged
@@ -33,21 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &7087259650983587990
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2436632313184452382}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &3972558406100325361
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +138,7 @@ GameObject:
   - component: {fileID: 2619921752133765443}
   - component: {fileID: 6803533343145524358}
   - component: {fileID: 5976634303383578132}
+  - component: {fileID: 355604290414636681}
   m_Layer: 8
   m_Name: FanBox
   m_TagString: Untagged
@@ -231,8 +216,21 @@ MeshCollider:
   m_GameObject: {fileID: 7641911153435961616}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3667285430583573978, guid: 641db3db0ac071e4cb3339fbfe21b43a, type: 3}
+--- !u!65 &355604290414636681
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7641911153435961616}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.0859623, y: 3.11522, z: 5.1300507}
+  m_Center: {x: 0.0065590143, y: 1.4190984, z: 0.00000035762787}
