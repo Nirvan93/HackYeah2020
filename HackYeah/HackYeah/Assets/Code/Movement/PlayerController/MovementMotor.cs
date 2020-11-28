@@ -20,18 +20,19 @@ public class MovementMotor
         motorPower += amount;
     }
 
-    public void Update(Vector3 pos)
+    public void Update(Transform root)
     {
+
         if (targetPos == Vector3.zero )
         {
             distance = 0f;
         }
         else
-            distance = Vector3.Distance(pos, targetPos);
+            distance = Vector3.Distance(root.position, targetPos);
 
         if (distance > decelerationDistance)
         {
-            Vector3 moveDir = (targetPos - pos).normalized;
+            Vector3 moveDir = (targetPos - root.position).normalized;
 
             targetAcceleration = Vector3.LerpUnclamped(Vector3.zero, moveDir, motorPower);
             targetAcceleration *= .1f + Mathf.InverseLerp(0f, decelerationDistance, distance) * 0.9f;

@@ -20,14 +20,12 @@ public partial class PlayerController : MonoBehaviour
     private void Update()
     {
         CustomMotorUpdate();
-        return;
         UpdateInput();
         UpdateMotor();
     }
 
     private void FixedUpdate()
     {
-        return;
         PhysicsCalculations();
     }
 

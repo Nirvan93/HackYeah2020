@@ -4,12 +4,11 @@ using UnityEngine;
 
 public partial class PlayerController
 {
-    public MovementMotor Motor;
-    private Vector3 proceduralPosition;
+    public MovementMotor Motor; 
+    
     public void CustomMotorUpdate()
     {
-        Motor.Update(transform.position);
-        transform.position = Motor.Output;
-        //proceduralPosition = Motor.Output;
+        Motor.Update(transform);
+        //transform.position += Motor.Output * Time.deltaTime;
     }
 }

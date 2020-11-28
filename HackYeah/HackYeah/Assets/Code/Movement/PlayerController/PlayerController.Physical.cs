@@ -17,7 +17,7 @@ public partial class PlayerController
     {
         if (Motor.targetPos != Vector3.zero)
         {
-            //rigbody.velocity = (Motor.Output - rigbody.position) * 14f;
+            rigbody.velocity = (Motor.Output) * 14f;
             rigbody.useGravity = !SwitchOffGravity;
         }
         else

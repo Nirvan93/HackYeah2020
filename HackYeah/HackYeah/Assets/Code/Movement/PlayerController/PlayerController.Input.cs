@@ -22,7 +22,6 @@ public partial class PlayerController
         if (isGrounded)
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                Debug.Log("jumnpoasf");
                 triggerJumping = 8f;
             }
     }

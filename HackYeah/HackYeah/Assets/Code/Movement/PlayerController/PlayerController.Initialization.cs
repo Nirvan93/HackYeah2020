@@ -14,7 +14,7 @@ public partial class PlayerController
         currentRotation = transform.rotation;
         targetedRotation = transform.rotation;
 
-        proceduralPosition = transform.position;
+        //proceduralPosition = transform.position;
     }
 
 }
