@@ -14,7 +14,7 @@ public class SuperpowersManager : Singleton<SuperpowersManager>
 
     public void Start()
     {
-        InitializeSuperpowers();   
+        InitializeSuperpowers();
     }
 
 
@@ -43,9 +43,9 @@ public class SuperpowersManager : Singleton<SuperpowersManager>
 
     private void CheckChangeSuperPowerInput()
     {
-        foreach(SuperPower superPower in _allSuperPowers)
+        foreach (SuperPower superPower in _allSuperPowers)
         {
-            if(superPower.IsAvailable && Input.GetKeyDown(superPower.KeyCodeToActivate))
+            if (superPower.IsAvailable && Input.GetKeyDown(superPower.KeyCodeToActivate))
             {
                 SetCurrentSuperPower(superPower);
                 break;
@@ -62,7 +62,9 @@ public class SuperpowersManager : Singleton<SuperpowersManager>
         _activeSuperPower.OnActivate();
 
         if (GameUiController.Instance != null)
+        {
             GameUiController.Instance.SetSuperPowerActivated(superPowerToActivate.SuperPowerType);
+        }
     }
 
     public void SetAvailableSuperPowers(List<ESuperPowerType> superpowersAvailable)
