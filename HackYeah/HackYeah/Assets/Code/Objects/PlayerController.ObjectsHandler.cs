@@ -5,13 +5,13 @@ using UnityEngine;
 public partial class PlayerController
 {
     [Header("Pickable Objects Handling")]
-    public PickableObject TestPickableObject = null;
-
     [SerializeField]
     private Transform _handTransform = null;
 
     [SerializeField]
-    private float _throwPower = 40f;
+    private float _normalThrowPower = 30f;
+    [SerializeField]
+    private float _superPowerThrowPower = 80f;
 
     private PickableObject _currentlyPickedObject = null;
     
@@ -40,7 +40,7 @@ public partial class PlayerController
             Vector3 throwDirection = (worldMousePosition - transform.position).normalized;
 
             _currentlyPickedObject.transform.SetParent(null);
-            _currentlyPickedObject.Thrown(throwDirection * _throwPower);
+            _currentlyPickedObject.Thrown(throwDirection * (SuperStrengthPower.SuperStrengthPowerActive ? _superPowerThrowPower : _normalThrowPower));
             _currentlyPickedObject = null;
         }
     }
@@ -54,7 +54,7 @@ public partial class PlayerController
 
     public PickableObject SearchForPickablesNearPlayer()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 3);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 4);
         foreach (var hitCollider in hitColliders)
         {
             if (hitCollider.attachedRigidbody == null)
