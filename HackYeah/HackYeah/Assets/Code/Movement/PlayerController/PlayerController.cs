@@ -25,6 +25,8 @@ public partial class PlayerController : MonoBehaviour
             UpdateInput();
             UpdateMotor();
         }
+
+        UpdateGlowEffect();
     }
 
     private void FixedUpdate()
