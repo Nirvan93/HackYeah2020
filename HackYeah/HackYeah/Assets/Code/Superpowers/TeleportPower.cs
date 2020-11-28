@@ -38,7 +38,7 @@ public class TeleportPower : SuperPower
         _playerController.transform.rotation = Quaternion.Euler(_playerController.transform.rotation.eulerAngles.x, 180, _playerController.transform.rotation.eulerAngles.z);
         Time.timeScale = 0.0f;
 
-        _playerController.SwitchRagdoll(true);
+        //_playerController.SwitchRagdoll(true);
         BodyPartCollection.Instance.StartClicking();
 
         yield return new WaitForSecondsRealtime(_teleportTime);
@@ -51,7 +51,7 @@ public class TeleportPower : SuperPower
         }
         else
         {
-            _playerController.SwitchRagdoll(false);
+            //_playerController.SwitchRagdoll(false);
         }
 
         _playerController.transform.position = worldMousePosition;

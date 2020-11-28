@@ -26,6 +26,9 @@ public class SuperSpeed : MonoBehaviour
 
     public void Update()
     {
+        if (!SuperSpeedPower.SuperSpeedActivated)
+            return;
+
         if (!drawing)
             if (Input.GetMouseButtonDown(0))
                 StartDrawing();

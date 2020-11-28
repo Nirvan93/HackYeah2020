@@ -32,7 +32,7 @@ public partial class PlayerController
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            SwitchRagdoll(true);
+            SwitchRagdoll(true,true);
             //AddForceToRagdollBodies(Vector3.right * 10f);
         }
 
