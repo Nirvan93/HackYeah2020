@@ -27,8 +27,8 @@ public partial class PlayerController
         if (Input.GetKeyDown(KeyCode.E))
             PlayerWantsToPickAnyObject();
 
-        if (Input.GetMouseButtonDown(1))
-            ThrowObject();
+        ProcessThrowingInput();
+   
 
         if (Input.GetKeyDown(KeyCode.L))
         {

@@ -124,4 +124,9 @@ public partial class PlayerController
         deltaRotation.ToAngleAxis(out angle, out axis);
         return axis * (angle * Mathf.Deg2Rad);
     }
+
+    public Vector3 GetVelocity()
+    {
+        return rigbody.velocity;
+    }
 }
