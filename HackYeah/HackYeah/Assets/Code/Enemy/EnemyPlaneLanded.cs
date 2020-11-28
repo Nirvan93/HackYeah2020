@@ -60,11 +60,11 @@ public class EnemyPlaneLanded : MonoBehaviour
         {
             case AIState.Flying:
 
-                if(transform.position.y>FlyLimit.y)
+                if (transform.position.y > FlyLimit.y)
                 {
                     aiState = AIState.Landing;
                 }
-                
+
                 targetVelocity.y = 1;
 
 
@@ -111,7 +111,7 @@ public class EnemyPlaneLanded : MonoBehaviour
 
     public void GroundDetection()
     {
-        if (Physics.Raycast(transform.position, Vector3.down , GroundedDistance, groundMask))
+        if (Physics.Raycast(transform.position, Vector3.down, GroundedDistance, groundMask))
         {
             isGrounded = true;
         }
@@ -121,9 +121,10 @@ public class EnemyPlaneLanded : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        // if (Application.isPlaying) return;
-        Gizmos.DrawSphere(transform.position + LeftBorder, 0.1f);
-        Gizmos.DrawSphere(transform.position + RightBorder, 0.1f);
+        if (Application.isPlaying) return;
+        Gizmos.color = new Color(1, 0, 0, 1);
+        Gizmos.DrawSphere(transform.position + LeftBorder, 0.5f);
+        Gizmos.DrawSphere(transform.position + RightBorder, 0.5f);
         Gizmos.DrawLine(transform.position, transform.position + new Vector3(0, FlyLimit.y, 0));
         Gizmos.DrawRay(transform.position, Vector3.down * GroundedDistance);
     }
