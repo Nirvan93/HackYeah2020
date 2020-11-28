@@ -100,7 +100,7 @@ public partial class PlayerController
                 {
                     if (collision.relativeVelocity.magnitude > KillVelocity)
                     {
-                        SwitchRagdoll(true);
+                        SwitchRagdoll(true,true);
                         AddForceToRagdollBodies(-collision.relativeVelocity * 2f);
                     }
                 }

@@ -50,12 +50,12 @@ public partial class PlayerController
         Physics.IgnoreCollision(GetUpArmL().GetComponent<Collider>(), GetUpArmL().transform.GetChild(0).GetComponent<Collider>());
         Physics.IgnoreCollision(GetUpArmR().GetComponent<Collider>(), GetUpArmR().transform.GetChild(0).GetComponent<Collider>());
 
-        SwitchRagdoll(false);
+        SwitchRagdoll(false,false);
     }
 
     public Transform SkelRoot;
     public float BreakJointForce = 10f;
-    public void SwitchRagdoll(bool turnOnRagdolling)
+    public void SwitchRagdoll(bool turnOnRagdolling, bool isDead)
     {
         if (SkelRoot) SkelRoot.gameObject.SetActive(turnOnRagdolling);
 
@@ -76,7 +76,8 @@ public partial class PlayerController
 
         rigbody.isKinematic = turnOnRagdolling;
         GetComponent<Animator>().enabled = !turnOnRagdolling;
-        GameUiController.Instance.ShowFadingUI();
+        if (isDead)
+            GameUiController.Instance.ShowFadingUI();
     }
 
 
@@ -88,7 +89,7 @@ public partial class PlayerController
 
     public void AddForceToRagdollBodies(Vector3 power)
     {
-        if (SkelRoot.gameObject.activeInHierarchy == false) SwitchRagdoll(true);
+        if (SkelRoot.gameObject.activeInHierarchy == false) SwitchRagdoll(true,false);
 
         for (int i = 0; i < ragBodies.Count; i++)
         {

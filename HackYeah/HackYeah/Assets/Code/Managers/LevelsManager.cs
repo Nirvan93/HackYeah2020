@@ -12,6 +12,12 @@ public class LevelsManager : Singleton<LevelsManager>
         DontDestroyOnLoad(this);
     }
 
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+            ResetLevel();
+    }
+
     public void SelectedLevel(int levelId)
     {
         //Here should be a level to level transition 

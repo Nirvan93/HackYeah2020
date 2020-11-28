@@ -31,6 +31,7 @@ public class GameUiController : Singleton<GameUiController>
 
     public void ShowFadingUI()
     {
+        Debug.Log("WtF");
         StartCoroutine(WaitFewSecondsAndShowFadingUI());
     }
 
