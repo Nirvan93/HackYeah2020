@@ -10,6 +10,8 @@ public class GameUiController : Singleton<GameUiController>
     [SerializeField]
     private FadingUI _fadingUI = null;
 
+    public HintTextController HintText;
+
     public void Start()
     {
         foreach (UiSuperPower superPower in _superPowerIndicators)
@@ -22,7 +24,8 @@ public class GameUiController : Singleton<GameUiController>
 
     public void SetSuperPowerActivated(ESuperPowerType superPowerType)
     {
-        foreach(UiSuperPower superPower in _superPowerIndicators)
+        HintText.SetHintForSuperPower(superPowerType);
+        foreach (UiSuperPower superPower in _superPowerIndicators)
         {
             superPower.SetActivatedValue(superPowerType == superPower.SuperPowerType);
         }
@@ -31,7 +34,6 @@ public class GameUiController : Singleton<GameUiController>
 
     public void ShowFadingUI()
     {
-        Debug.Log("WtF");
         StartCoroutine(WaitFewSecondsAndShowFadingUI());
     }
 

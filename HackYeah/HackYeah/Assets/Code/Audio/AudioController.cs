@@ -1,18 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static AudioSource PlayAudio(AudioClip clip, Vector3 playingPosition)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        GameObject audio = new GameObject();
+        AudioSource source = audio.AddComponent<AudioSource>();
+        source.clip = clip;
+        source.spatialBlend = 1;
+        GameObject.Destroy(audio, clip.length);
+        return source;
     }
 }

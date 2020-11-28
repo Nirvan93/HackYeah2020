@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AlienController : MonoBehaviour
+public partial class AlienController : MonoBehaviour
 {
     [SerializeField]
     private Transform _shotPoint;
@@ -16,9 +16,11 @@ public class AlienController : MonoBehaviour
     private float _shotTimer = 0;
     private float _nextShotTime = 0;
 
+
     public void Start()
     {
         _nextShotTime = _shotIntervalRange.GetRandomValueInRange();
+        InitRagdoll();
     }
 
     public void Update()
@@ -29,6 +31,9 @@ public class AlienController : MonoBehaviour
         {
             Shoot();
         }
+
+        if (Input.GetKeyDown(KeyCode.C))
+            AddForceToRagdollBodies(Vector3.right * 31f);
     }
 
     private void Shoot()

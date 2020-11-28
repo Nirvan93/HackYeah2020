@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class PlayerController
+public partial class AlienController
 {
     List<Rigidbody> ragBodies;
     List<Collider> ragColliders;
@@ -29,10 +29,12 @@ public partial class PlayerController
             }
         }
 
+        Collider cc = GetComponent<Collider>();
         for (int i = 0; i < ragBodies.Count; i++)
         {
             CharacterJoint joint = ragBodies[i].GetComponent<CharacterJoint>();
             if (joint != null) joint.breakForce = BreakJointForce;
+            if (cc) Physics.IgnoreCollision(cc, ragColliders[i]);
         }
 
         GetChest().GetComponent<CharacterJoint>().breakForce = Mathf.Infinity;
@@ -50,31 +52,25 @@ public partial class PlayerController
         Physics.IgnoreCollision(GetUpArmL().GetComponent<Collider>(), GetUpArmL().transform.GetChild(0).GetComponent<Collider>());
         Physics.IgnoreCollision(GetUpArmR().GetComponent<Collider>(), GetUpArmR().transform.GetChild(0).GetComponent<Collider>());
 
-        SwitchRagdoll(false,false);
+        SwitchRagdoll(false, false);
     }
 
     public Transform SkelRoot;
     public float BreakJointForce = 10f;
+    private bool ragg = false;
     public void SwitchRagdoll(bool turnOnRagdolling, bool isDead)
     {
+        ragg = turnOnRagdolling;
+
         if (SkelRoot) SkelRoot.gameObject.SetActive(turnOnRagdolling);
 
-        capsuleCollider.enabled = !turnOnRagdolling;
-        rigbody.detectCollisions = !turnOnRagdolling;
 
         for (int i = 0; i < ragColliders.Count; i++)
         {
-            ragColliders[i].enabled = turnOnRagdolling;
-            ragBodies[i].velocity = rigbody.velocity;
+            //ragColliders[i].enabled = turnOnRagdolling;
+            ragBodies[i].velocity = Vector3.down * 0.4f;
         }
 
-        if (turnOnRagdolling)
-        {
-            updateMovement = false;
-            SwitchOffGravity = true;
-        }
-
-        rigbody.isKinematic = turnOnRagdolling;
         GetComponent<Animator>().enabled = !turnOnRagdolling;
         if (isDead)
             GameUiController.Instance.ShowFadingUI();
@@ -89,7 +85,7 @@ public partial class PlayerController
 
     public void AddForceToRagdollBodies(Vector3 power)
     {
-        if (SkelRoot.gameObject.activeInHierarchy == false) SwitchRagdoll(true,false);
+        SwitchRagdoll(true, false);
 
         for (int i = 0; i < ragBodies.Count; i++)
         {
@@ -110,4 +106,22 @@ public partial class PlayerController
         return null;
     }
 
+    private void FixedUpdate()
+    {
+        if (!ragg)
+            for (int i = 0; i < ragBodies.Count; i++)
+            {
+                ragBodies[i].velocity = Vector3.zero;
+            }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.relativeVelocity.magnitude > 12f)
+        {
+            AddForceToRagdollBodies(collision.relativeVelocity);
+            TCameraController.Instance.ScreenShake(collision.relativeVelocity.magnitude / 5f, 0.15f);
+        }
+        Debug.Log("Enter " + collision.relativeVelocity);
+    }
 }

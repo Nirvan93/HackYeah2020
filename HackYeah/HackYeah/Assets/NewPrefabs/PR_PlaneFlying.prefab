@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 1614168094366843916}
   - component: {fileID: 1614168094366843917}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: PR_PlaneFlying
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
