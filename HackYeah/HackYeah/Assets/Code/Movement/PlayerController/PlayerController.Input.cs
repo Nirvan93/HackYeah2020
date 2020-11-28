@@ -25,10 +25,12 @@ public partial class PlayerController
         //        triggerJumping = 8f;
         //    }
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SwitchRagdoll(true);
-        }
+        //Objects
+        if (Input.GetKeyDown(KeyCode.E))
+            PlayerWantsToPickAnyObject();
+
+        if (Input.GetMouseButtonDown(1))
+            ThrowObject();
     }
 
     public void SetJumpInput(float jumpPower)
