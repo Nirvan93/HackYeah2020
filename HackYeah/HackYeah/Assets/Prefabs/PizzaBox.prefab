@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3733801136552239864}
   - component: {fileID: 5044542540385001315}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PizzaBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 1861044324982130982}
   - component: {fileID: 7369198029851565135}
   - component: {fileID: 1444790970123406289}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PizzaBox_Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 2030911734134787116}
   - component: {fileID: 3083507532496756120}
   - component: {fileID: 2541870583378994254}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PizzaBox_Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}

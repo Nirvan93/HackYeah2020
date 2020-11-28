@@ -27,8 +27,8 @@ public partial class PlayerController
 
         _currentlyPickedObject = pickable;
         _currentlyPickedObject.PickedUp();
-        _currentlyPickedObject.transform.SetParent(_handTransform);
-        _currentlyPickedObject.transform.localPosition = Vector3.zero;
+        _currentlyPickedObject.transform.SetParent(transform);
+        _currentlyPickedObject.transform.position = _handTransform.position;
     }
 
     public void ThrowObject(float throwPower)
