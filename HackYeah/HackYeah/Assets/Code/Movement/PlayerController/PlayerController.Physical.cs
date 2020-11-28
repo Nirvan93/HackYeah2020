@@ -118,7 +118,7 @@ public partial class PlayerController
             }
     }
 
-    private Vector3 ToAngularVelocity(Quaternion deltaRotation)
+    public static Vector3 ToAngularVelocity(Quaternion deltaRotation)
     {
         float angle; Vector3 axis;
         deltaRotation.ToAngleAxis(out angle, out axis);
