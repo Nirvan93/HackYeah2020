@@ -465,6 +465,10 @@ PrefabInstance:
       propertyPath: _flyingController
       value: 
       objectReference: {fileID: 682285782}
+    - target: {fileID: 176849718, guid: 9d6a44bc21162fd42a9272941139e80e, type: 3}
+      propertyPath: IsAvailable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 176849722, guid: 9d6a44bc21162fd42a9272941139e80e, type: 3}
       propertyPath: _playerController
       value: 
@@ -1782,7 +1786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83f31cb1aafdbe34c81bb3259a529bcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _availableSuperPowers: 0000000001000000020000000400000007000000
+  _availableSuperPowers: 00000000010000000700000004000000
 --- !u!4 &901970764
 Transform:
   m_ObjectHideFlags: 0
