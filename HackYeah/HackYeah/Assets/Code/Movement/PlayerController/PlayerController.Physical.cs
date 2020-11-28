@@ -72,7 +72,7 @@ public partial class PlayerController
                 if (!IsGrounded || targetVelo.sqrMagnitude > Preset.MaxSpeed * 0.2f) capsuleCollider.material = MSlide; else capsuleCollider.material = MFriction;
 
                 rigbody.velocity = targetVelo;
-                rigbody.angularVelocity = ToAngularVelocity(currentRotation * Quaternion.Inverse(rigbody.rotation)) / (Time.fixedDeltaTime * 5f);
+                rigbody.angularVelocity = ToAngularVelocity(currentRotation * Quaternion.Inverse(rigbody.rotation)) / (Time.fixedDeltaTime * 3f);
             }
             else
             {
