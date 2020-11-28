@@ -16,6 +16,7 @@ public partial class PlayerController : MonoBehaviour
     {
         Initialize();
         InitRagdoll();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
