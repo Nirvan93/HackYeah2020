@@ -47,12 +47,12 @@ public class TCameraController : MonoBehaviour
         CalculateZDistance();
         CalculateDirectionBonus();
 
-        //transform.position = Vector3.Lerp(transform.position, _target.position + _offsetPositon + _shakeBonus, _movementSpeed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, _target.position + _offsetPositon + _calculatedBonus + _shakeBonus, _movementSpeed * Time.deltaTime);
     }
 
     private void FixedUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, _target.position + _offsetPositon  + _calculatedBonus+ _shakeBonus, _movementSpeed * Time.fixedDeltaTime);
+        //transform.position = Vector3.Lerp(transform.position, _target.position + _offsetPositon  + _calculatedBonus+ _shakeBonus, _movementSpeed * Time.fixedDeltaTime);
     }
 
     public void SetTarget(Transform targetTransform)

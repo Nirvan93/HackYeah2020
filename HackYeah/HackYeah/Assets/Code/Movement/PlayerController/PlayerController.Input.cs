@@ -19,11 +19,16 @@ public partial class PlayerController
         else
             Input_Accelerate = 0f;
 
-        if (isGrounded)
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                triggerJumping = 8f;
-            }
+        //if (isGrounded)
+        //    if (Input.GetKeyDown(KeyCode.Space))
+        //    {
+        //        triggerJumping = 8f;
+        //    }
+    }
+
+    public void SetJumpInput(float jumpPower)
+    {
+        triggerJumping = jumpPower;
     }
 
 

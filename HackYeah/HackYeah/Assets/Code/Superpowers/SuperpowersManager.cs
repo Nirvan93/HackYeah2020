@@ -7,12 +7,29 @@ public class SuperpowersManager : MonoBehaviour
     [SerializeField]
     private List<SuperPower> _allSuperPowers = new List<SuperPower>();
 
+    [SerializeField]
+    private PlayerController _playerController = null;
+
     private SuperPower _activeSuperPower = null;
+
+    public void Start()
+    {
+        InitializeSuperpowers();   
+    }
+
 
     // Update is called once per frame
     void Update()
     {
         CheckChangeSuperPowerInput();
+    }
+
+    private void InitializeSuperpowers()
+    {
+        foreach (SuperPower superPower in _allSuperPowers)
+        {
+            superPower.Initialize(_playerController);
+        }
     }
 
     public void SetSuperPowerAvailable(ESuperPowerType superPowerType)

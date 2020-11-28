@@ -4,7 +4,7 @@ using UnityEngine;
 
 public partial class PlayerController
 {
-    protected bool isGrounded = false;
+    public bool IsGrounded = false;
     protected bool isJumping = false;
     protected float triggerJumping = 0f;
 
@@ -46,12 +46,12 @@ public partial class PlayerController
                 rigbody.MovePosition(rigbody.position + transform.up * triggerJumping * 0.01f);
                 OnJump();
                 triggerJumping = 0f;
-                isGrounded = false;
+                IsGrounded = false;
             }
             else targetVelo.y = velocityMemory.y;
 
             // Apply -----------------------
-            if (!isGrounded || targetVelo.sqrMagnitude > Preset.MaxSpeed * 0.2f) capsuleCollider.material = MSlide; else capsuleCollider.material = MFriction;
+            if (!IsGrounded || targetVelo.sqrMagnitude > Preset.MaxSpeed * 0.2f) capsuleCollider.material = MSlide; else capsuleCollider.material = MFriction;
 
             rigbody.velocity = targetVelo;
             rigbody.angularVelocity = ToAngularVelocity(currentRotation * Quaternion.Inverse(rigbody.rotation)) / Time.fixedDeltaTime;
@@ -61,7 +61,7 @@ public partial class PlayerController
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!isGrounded)
+        if (!IsGrounded)
             if (collision != null)
                 if (collision.contacts.Length > 0)
                 {
@@ -70,7 +70,7 @@ public partial class PlayerController
                         float dot = Vector3.Dot(Vector3.up, collision.contacts[i].normal);
                         if (dot > 0.25f)
                         {
-                            if (!isGrounded) OnHitGround(collision.relativeVelocity);
+                            if (!IsGrounded) OnHitGround(collision.relativeVelocity);
                             return;
                         }
                     }
