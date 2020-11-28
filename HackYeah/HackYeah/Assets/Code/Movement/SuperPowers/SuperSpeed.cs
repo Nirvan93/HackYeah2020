@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SuperSpeed_LineDrawer : MonoBehaviour
+public class SuperSpeed : MonoBehaviour
 {
-    public static SuperSpeed_LineDrawer Instance;
-    private void Awake() { Instance = this; }
+    public static PlayerController Player { get { return PlayerController.Instance; } }
 
     public float MaxDrawingTime = 4f;
     public float DrawPointInterval = 0.25f;
@@ -19,12 +18,12 @@ public class SuperSpeed_LineDrawer : MonoBehaviour
 
     private List<Vector3> drawedPath;
 
-    private void Start()
+    public void Start()
     {
         drawedPath = new List<Vector3>();
     }
 
-    void Update()
+    public void Update()
     {
         if (!drawing)
             if (Input.GetMouseButtonDown(0))
@@ -75,14 +74,14 @@ public class SuperSpeed_LineDrawer : MonoBehaviour
         drawing = false;
         line.enabled = false;
 
-        StartCoroutine(CApplyPathToPlayer());
+        Player.StartCoroutine(CApplyPathToPlayer());
     }
 
     Vector3 GetCursorPosition()
     {
-        var mouse = Input.mousePosition; mouse.z = (PlayerController.Instance.transform.position.z - Camera.main.transform.position.z);
+        var mouse = Input.mousePosition; mouse.z = (Player.transform.position.z - Camera.main.transform.position.z);
         mouse = Camera.main.ScreenToWorldPoint(mouse);
-        mouse.z = PlayerController.Instance.transform.position.z;
+        mouse.z = Player.transform.position.z;
         return mouse;
     }
 
@@ -99,20 +98,30 @@ public class SuperSpeed_LineDrawer : MonoBehaviour
         for (int i = 0; i < path.Length; i++)
         {
             Vector3 startJumpPos = PlayerController.Instance.transform.position + off;
+
+            Vector3 nextPos;
+            if (i < path.Length - 1) nextPos = path[i + 1];
+            else nextPos = path[i] + (path[i] - path[i - 1]);
+
             Vector3 initDir = ((drawedPath[i] + off) - (startJumpPos + off)).normalized;
+
+            Vector3 fromPointToPointDir;
+            if (i == 0) fromPointToPointDir = path[0] - Player.transform.position;
+            else fromPointToPointDir = nextPos - path[i];
+            fromPointToPointDir.Normalize();
+
             float elapsed = 0f;
 
             while (true)
             {
-                Vector3 nextPos;
-                if (i < path.Length - 1) nextPos = path[i + 1];
-                else nextPos = path[i] + (path[i] - path[i - 1]);
-
                 elapsed += Time.deltaTime;
                 float progress = elapsed / OnePointMoveDur;
                 Vector3 veloPoint = Vector3.Lerp(startJumpPos, nextPos, progress);
 
-                Debug.DrawRay(veloPoint, Vector3.forward, Color.red, 0.25f);
+                Vector3 currentDir = (veloPoint - Player.transform.position).normalized;
+                float dot = Vector3.Dot(initDir, currentDir);
+                //Debug.Log("Dot " + dot);
+                if (dot < 0.2f) break;
 
                 //PlayerController.Instance.R.MovePosition(veloPoint);
                 PlayerController.Instance.Motor.targetPos = veloPoint;
@@ -126,4 +135,5 @@ public class SuperSpeed_LineDrawer : MonoBehaviour
         PlayerController.Instance.Motor.targetPos = Vector3.zero;
         PlayerController.Instance.SwitchOffGravity = false;
     }
+
 }
