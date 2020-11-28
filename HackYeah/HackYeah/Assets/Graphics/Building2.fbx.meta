@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 06cbad3682cebfb4a98397da7f4ff51e
+=======
+guid: 764a142abe603264cbe43e3865151bdf
+>>>>>>> 72c9148cc733b3e42142b42094053a668120518d
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
@@ -65,7 +69,11 @@ ModelImporter:
     second: Cube.002|Jump1.001
   externalObjects: {}
   materials:
+<<<<<<< HEAD
     materialImportMode: 1
+=======
+    materialImportMode: 0
+>>>>>>> 72c9148cc733b3e42142b42094053a668120518d
     materialName: 0
     materialSearch: 1
     materialLocation: 1
