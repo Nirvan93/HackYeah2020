@@ -72,4 +72,14 @@ public class SuperpowersManager : Singleton<SuperpowersManager>
             superPower.IsAvailable = superpowersAvailable.Contains(superPower.SuperPowerType);
         }
     }
+
+    public bool IsSuperPowerAvailable(ESuperPowerType power)
+    {
+        foreach (SuperPower superPower in _allSuperPowers)
+        {
+            if (superPower.SuperPowerType == power)
+                return superPower.IsAvailable;
+        }
+        return false;
+    }
 }
