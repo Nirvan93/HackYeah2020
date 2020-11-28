@@ -1,24 +1,41 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.AssetImporters;
 using UnityEngine;
 
 public partial class PlayerController
 {
-    protected bool isGrounded = false;
+    public bool IsGrounded = false;
     protected bool isJumping = false;
     protected float triggerJumping = 0f;
 
     protected Rigidbody rigbody;
     protected CapsuleCollider capsuleCollider;
+    protected bool updateMovement = true;
 
     public bool SwitchOffGravity = false;
+    private Vector3 previousVelo;
+    private Vector3 previousVelo2;
+
+    public void SwitchBasicPhysicsLogics(bool turnOn)
+    {
+        updateMovement = turnOn;
+    }
+
+    private Vector3 overrideVelo = Vector3.zero;
+    public void OverrideVelocity(Vector3 velo)
+    {
+        overrideVelo = velo;
+    }
+
 
     private void PhysicsCalculations()
     {
-        if (Motor.targetPos != Vector3.zero)
+        if (overrideVelo != Vector3.zero)
         {
-            rigbody.velocity = (Motor.Output) * 14f;
+            rigbody.velocity = overrideVelo;
             rigbody.useGravity = !SwitchOffGravity;
+            overrideVelo = Vector3.zero;
         }
         else
         {
@@ -46,35 +63,45 @@ public partial class PlayerController
                 rigbody.MovePosition(rigbody.position + transform.up * triggerJumping * 0.01f);
                 OnJump();
                 triggerJumping = 0f;
-                isGrounded = false;
+                IsGrounded = false;
             }
             else targetVelo.y = velocityMemory.y;
 
             // Apply -----------------------
-            if (!isGrounded || targetVelo.sqrMagnitude > Preset.MaxSpeed * 0.2f) capsuleCollider.material = MSlide; else capsuleCollider.material = MFriction;
+            if (!IsGrounded || targetVelo.sqrMagnitude > Preset.MaxSpeed * 0.2f) capsuleCollider.material = MSlide; else capsuleCollider.material = MFriction;
 
             rigbody.velocity = targetVelo;
             rigbody.angularVelocity = ToAngularVelocity(currentRotation * Quaternion.Inverse(rigbody.rotation)) / Time.fixedDeltaTime;
         }
+
+        previousVelo2 = previousVelo;
+        previousVelo = rigbody.velocity;
     }
 
-
+    public float KillVelocity = 100f;
     private void OnCollisionEnter(Collision collision)
     {
-        if (!isGrounded)
-            if (collision != null)
-                if (collision.contacts.Length > 0)
+        if (collision != null)
+            if (collision.contacts.Length > 0)
+            {
+                Debug.Log("rel velo = " + collision.relativeVelocity + " magn = " + collision.relativeVelocity.magnitude);
+                if (collision.relativeVelocity.magnitude > KillVelocity)
                 {
+                    SwitchRagdoll(true);
+                    AddForceToRagdollBodies(-collision.relativeVelocity * 2f);
+                }
+
+                if (!IsGrounded)
                     for (int i = 0; i < collision.contacts.Length; i++)
                     {
                         float dot = Vector3.Dot(Vector3.up, collision.contacts[i].normal);
                         if (dot > 0.25f)
                         {
-                            if (!isGrounded) OnHitGround(collision.relativeVelocity);
+                            if (!IsGrounded) OnHitGround(collision.relativeVelocity);
                             return;
                         }
                     }
-                }
+            }
     }
 
     private Vector3 ToAngularVelocity(Quaternion deltaRotation)

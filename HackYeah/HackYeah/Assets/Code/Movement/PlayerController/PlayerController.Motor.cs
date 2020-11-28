@@ -10,8 +10,8 @@ public partial class PlayerController
     private Quaternion currentRotation;
     private Quaternion targetedRotation;
 
-    private readonly Quaternion TOLEFT = Quaternion.Euler(0f, 180f, 0f);
-    private readonly Quaternion TORIGHT = Quaternion.Euler(0f, 0f, 0f);
+    private readonly Quaternion TOLEFT = Quaternion.Euler(0f, -90f, 0f);
+    private readonly Quaternion TORIGHT = Quaternion.Euler(0f, 90f, 0f);
 
     public void UpdateMotor()
     {

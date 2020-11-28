@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TCameraController : MonoBehaviour
+public class TCameraController : Singleton<TCameraController>
 {
+    public Camera CameraComponent;
+
     [SerializeField]
     private Transform _target = null;
     [SerializeField]
@@ -33,6 +35,10 @@ public class TCameraController : MonoBehaviour
     private float _decreaseFactor = 1.0f;
     private Vector3 _shakeBonus;
 
+    public void Start()
+    {
+        CameraComponent = GetComponent<Camera>();
+    }
 
     // Update is called once per frame // NO CO TY
     void Update()
@@ -40,19 +46,19 @@ public class TCameraController : MonoBehaviour
         if (_target == null)
             return;
 
-        if (Input.GetKeyDown(KeyCode.E))
-            ScreenShake(Random.Range(2f, 5f), 0.3f);
+        //if (Input.GetKeyDown(KeyCode.E))
+        //    ScreenShake(Random.Range(2f, 5f), 0.3f);
 
         CalculateShakeBonus();
         CalculateZDistance();
         CalculateDirectionBonus();
 
-        //transform.position = Vector3.Lerp(transform.position, _target.position + _offsetPositon + _shakeBonus, _movementSpeed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, _target.position + _offsetPositon + _calculatedBonus + _shakeBonus, _movementSpeed * Time.deltaTime);
     }
 
     private void FixedUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, _target.position + _offsetPositon  + _calculatedBonus+ _shakeBonus, _movementSpeed * Time.fixedDeltaTime);
+        //transform.position = Vector3.Lerp(transform.position, _target.position + _offsetPositon  + _calculatedBonus+ _shakeBonus, _movementSpeed * Time.fixedDeltaTime);
     }
 
     public void SetTarget(Transform targetTransform)

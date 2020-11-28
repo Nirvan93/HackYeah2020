@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [System.Serializable]
-public class MovementMotor 
+public class MovementMotor
 {
     public float maxPower = 500f;
     public float accelerationSensitivity = 150f;
@@ -15,24 +15,35 @@ public class MovementMotor
     private Vector3 targetAcceleration;
     private float motorPower = 0f;
 
+
+    public void Reset()
+    {
+        distance = 0f;
+        acceleration = Vector3.zero;
+        targetAcceleration = Vector3.zero;
+        motorPower = 0f;
+        Output = Vector3.zero;
+    }
+
+
     public void RushAcceleration(float amount)
     {
         motorPower += amount;
     }
 
-    public void Update(Transform root)
+    public void Update(Vector3 currentPos)
     {
 
-        if (targetPos == Vector3.zero )
+        if (targetPos == Vector3.zero)
         {
             distance = 0f;
         }
         else
-            distance = Vector3.Distance(root.position, targetPos);
+            distance = Vector3.Distance(currentPos, targetPos);
 
         if (distance > decelerationDistance)
         {
-            Vector3 moveDir = (targetPos - root.position).normalized;
+            Vector3 moveDir = (targetPos - currentPos).normalized;
 
             targetAcceleration = Vector3.LerpUnclamped(Vector3.zero, moveDir, motorPower);
             targetAcceleration *= .1f + Mathf.InverseLerp(0f, decelerationDistance, distance) * 0.9f;

@@ -9,7 +9,7 @@ public partial class PlayerController
 
     void OnHitGround(Vector3 velo)
     {
-        isGrounded = true;
+        IsGrounded = true;
         isJumping = false;
     }
 
