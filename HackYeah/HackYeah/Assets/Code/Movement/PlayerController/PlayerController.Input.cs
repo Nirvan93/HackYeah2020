@@ -19,9 +19,9 @@ public partial class PlayerController
         else
             Input_Accelerate = 0f;
 
-        if (IsGrounded)
-            if (Input.GetKeyDown(KeyCode.Space))
-                triggerJumping = 15f;
+        //if (IsGrounded)
+        //    if (Input.GetKeyDown(KeyCode.Space))
+        //        triggerJumping = 15f;
 
         //Objects
         if (Input.GetKeyDown(KeyCode.E))

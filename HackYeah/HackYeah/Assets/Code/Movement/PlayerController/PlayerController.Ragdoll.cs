@@ -6,6 +6,7 @@ public partial class PlayerController
 {
     List<Rigidbody> ragBodies;
     List<Collider> ragColliders;
+    List<BodyPart> bodyParts;
 
     public void InitRagdoll()
     {
