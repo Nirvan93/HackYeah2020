@@ -60,6 +60,8 @@ public class BodyPart : MonoBehaviour
             particles.transform.SetParent(transform, true);
             particles.transform.localScale = Vector3.one;
 
+            PlayerAudio.Instance.PlayAudio(PlayerAudio.Instance.BreakBone);
+
             if (Explosion != null)
             {
                 GameObject explosion = Instantiate(Explosion, transform.position, Quaternion.identity);

@@ -91,19 +91,22 @@ public partial class PlayerController
         if (collision != null)
             if (collision.contacts.Length > 0)
             {
+                if (collision.relativeVelocity.magnitude > 1f)
+                    PlayerAudio.Instance.PlayAudio(PlayerAudio.Instance.Steps);
+
                 float relDot = Vector3.Dot(collision.relativeVelocity.normalized, collision.contacts[0].normal);
                 //Debug.Log("rel dot = " + relDot);
                 //Debug.Log("rel velo = " + collision.relativeVelocity + " magn = " + collision.relativeVelocity.magnitude);
 
-                if (relDot > 0.3f && relDot < 0.7f) 
-                { 
+                if (relDot > 0.3f && relDot < 0.7f)
+                {
                 }
                 else
                 {
                     if (collision.relativeVelocity.magnitude > KillVelocity)
                     {
-                        TCameraController.Instance.ScreenShake(1f + collision.relativeVelocity.magnitude / 14f, 0.1f + collision.relativeVelocity.magnitude /250f);
-                        SwitchRagdoll(true,true);
+                        TCameraController.Instance.ScreenShake(1f + collision.relativeVelocity.magnitude / 14f, 0.1f + collision.relativeVelocity.magnitude / 250f);
+                        SwitchRagdoll(true, true);
                         AddForceToRagdollBodies(-collision.relativeVelocity * 2f);
                     }
                 }

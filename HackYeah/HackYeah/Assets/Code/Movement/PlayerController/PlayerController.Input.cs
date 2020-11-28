@@ -50,6 +50,7 @@ public partial class PlayerController
     public void SetJumpInput(float jumpPower)
     {
         triggerJumping = jumpPower;
+        PlayerAudio.Instance.PlayAudio(PlayerAudio.Instance.Jumps);
     }
 
 

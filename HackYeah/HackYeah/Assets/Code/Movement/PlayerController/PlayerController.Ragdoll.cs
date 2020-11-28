@@ -76,8 +76,12 @@ public partial class PlayerController
 
         rigbody.isKinematic = turnOnRagdolling;
         GetComponent<Animator>().enabled = !turnOnRagdolling;
+
         if (isDead)
+        {
             GameUiController.Instance.ShowFadingUI();
+            PlayerAudio.Instance.PlayAudio(PlayerAudio.Instance.Pain);
+        }
     }
 
 
