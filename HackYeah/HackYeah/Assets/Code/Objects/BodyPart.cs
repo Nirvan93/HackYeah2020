@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class BodyPart : MonoBehaviour
 {
+    public HumanBodyBones LimbId;
     public bool WasClicked = false;
+    public GameObject Particles;
+    public GameObject Explosion;
 
     [SerializeField]
     private CharacterJoint _joint;
@@ -21,6 +24,7 @@ public class BodyPart : MonoBehaviour
     {
         _canBeClicked = false;
     }
+
 
     public void BreakIfNotClicked()
     {
@@ -40,5 +44,17 @@ public class BodyPart : MonoBehaviour
     {
         if (_canBeClicked)
             WasClicked = true;
+    }
+
+    private void OnJointBreak(float breakForce)
+    {
+        if(Particles!=null)
+        {
+            Particles.SetActive(true);
+            if(Explosion != null)
+            {
+                GameObject explosion = Instantiate(Explosion, transform.position, Quaternion.identity);
+            }
+        }
     }
 }
