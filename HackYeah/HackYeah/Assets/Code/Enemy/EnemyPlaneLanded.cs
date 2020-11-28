@@ -1,16 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class EnemyBird : MonoBehaviour
+public class EnemyPlaneLanded : MonoBehaviour
 {
     public float Speed = 1f;
     public Vector3 LeftBorder = Vector3.left;
     public Vector3 RightBorder = Vector3.right;
     public Vector3 FlyLimit = Vector3.zero;
     public float GroundedDistance = 1f;
-    public float PatrollingDistance = 1f;
-    public float Acceleration = 5f;
-    public float MaxSpeed = 30f;
 
     private bool movingRight = true;
     private Vector3 startPosition;
@@ -19,6 +16,8 @@ public class EnemyBird : MonoBehaviour
     private int groundMask;
     private bool isCoroutineWorking = false;
     private int directionValue;
+    private Quaternion leftRot;
+    private Quaternion rightRot;
 
     protected Rigidbody rigbody;
 
@@ -39,15 +38,26 @@ public class EnemyBird : MonoBehaviour
     void Update()
     {
 
+        leftRot = Quaternion.Euler(0, -90, 0);
+        rightRot = Quaternion.Euler(0, -270, 0);
+
+
         switch (aiState)
         {
             case AIState.Flying:
-                
-                targetVelocity = new Vector3(directionValue, 1f, 0);
+
+                float ySpeed = 0.2f + Mathf.PerlinNoise(112f, Time.time) * 0.3f;
+                targetVelocity = new Vector3(directionValue, ySpeed, 0);
+
+                if(transform.position.y>FlyLimit.y)
+                {
+                    aiState = AIState.Landing;
+                }
 
                 if (rigbody.position.x <= startPosition.x + LeftBorder.x)
                 {
                     movingRight = true;
+
                 }
 
                 if (rigbody.position.x > startPosition.x + RightBorder.x)
@@ -61,7 +71,7 @@ public class EnemyBird : MonoBehaviour
                     directionValue = -1;
 
 
-                if (elapsed > 8f)
+                if (elapsed > 10f)
                 {
                     aiState = AIState.Landing;
                     elapsed = 0f;
@@ -88,12 +98,18 @@ public class EnemyBird : MonoBehaviour
     private void FixedUpdate()
     {
         if (isCoroutineWorking) return;
+
         Movement();
     }
 
-        Vector3 targetVelocity;
+    Vector3 targetVelocity;
     public void Movement()
     {
+        if (movingRight)
+            rigbody.MoveRotation(rightRot);
+        else
+            rigbody.MoveRotation(leftRot);
+
         rigbody.velocity = targetVelocity * Speed;
     }
 
@@ -110,22 +126,21 @@ public class EnemyBird : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-       // if (Application.isPlaying) return;
+        // if (Application.isPlaying) return;
         Gizmos.DrawSphere(transform.position + LeftBorder, 0.1f);
         Gizmos.DrawSphere(transform.position + RightBorder, 0.1f);
         Gizmos.DrawLine(transform.position, transform.position + new Vector3(0, FlyLimit.y, 0));
         Gizmos.DrawRay(transform.position, Vector3.down * 1.5f * GroundedDistance);
-        Gizmos.DrawRay(transform.position, Vector3.down * 1.5f * PatrollingDistance);
     }
 
     public IEnumerator IStanding()
     {
         isCoroutineWorking = true;
         yield return new WaitForEndOfFrame();
-        
+
         if (isGrounded)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
         }
 
         aiState = AIState.Flying;
