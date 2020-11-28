@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8259518212420207546}
   - component: {fileID: 127013335718625112}
   - component: {fileID: 3988948357095057641}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SmallRoofBuilding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8223893616156656630}
   - component: {fileID: 572470918916685421}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SmallRoofBuildings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 6785294078104727621}
   - component: {fileID: 3572926045366445379}
   - component: {fileID: 3988948357095057640}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}

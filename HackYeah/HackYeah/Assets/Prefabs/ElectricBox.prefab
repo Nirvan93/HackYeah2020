@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3754946867672234519}
   - component: {fileID: 1439101300095667933}
   - component: {fileID: 304312521196819035}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ElectricBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

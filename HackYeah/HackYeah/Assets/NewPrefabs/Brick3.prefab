@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3820295275668777531}
   - component: {fileID: 3820295275668777528}
   - component: {fileID: 3820295275668777529}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Brick3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
