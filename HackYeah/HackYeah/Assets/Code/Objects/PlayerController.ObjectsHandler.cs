@@ -5,8 +5,6 @@ using UnityEngine;
 public partial class PlayerController
 {
     [Header("Pickable Objects Handling")]
-    public PickableObject TestPickableObject = null;
-
     [SerializeField]
     private Transform _handTransform = null;
 

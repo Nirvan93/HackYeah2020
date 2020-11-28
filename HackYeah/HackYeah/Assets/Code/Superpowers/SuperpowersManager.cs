@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SuperpowersManager : MonoBehaviour
+public class SuperpowersManager : Singleton<SuperpowersManager>
 {
     [SerializeField]
     private List<SuperPower> _allSuperPowers = new List<SuperPower>();
@@ -60,5 +60,8 @@ public class SuperpowersManager : MonoBehaviour
 
         _activeSuperPower = superPowerToActivate;
         _activeSuperPower.OnActivate();
+
+        if (GameUiController.Instance != null)
+            GameUiController.Instance.SetSuperPowerActivated(superPowerToActivate.SuperPowerType);
     }
 }
