@@ -1713,7 +1713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83f31cb1aafdbe34c81bb3259a529bcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _availableSuperPowers: 000000000100000002000000
+  _availableSuperPowers: 0000000001000000020000000400000007000000
 --- !u!4 &901970764
 Transform:
   m_ObjectHideFlags: 0
@@ -1954,7 +1954,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 6c865882d310ce046b7b16904b48060a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2046,7 +2046,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 74e55498e9546634c98d4ac30ed5d472, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2138,7 +2138,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 6e7087c90a9a46a4ba394f68a0fd74dc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3676,7 +3676,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: be673486df362a943b4f23dd1153122b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3919,6 +3919,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 01ad85c9eca7b9f4290f0922835fda25, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 4e514ad675800204a8d17efc28545410,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4e514ad675800204a8d17efc28545410,
         type: 3}
       propertyPath: m_Name
@@ -4221,7 +4226,7 @@ MonoBehaviour:
   KeyCodeToActivate: 49
   IsAvailable: 1
   _jumpKeyCode: 32
-  _normalJumpPower: 8
+  _normalJumpPower: 13
   _superJumpPowerMultiplier: 70
 --- !u!114 &1990670844
 MonoBehaviour:
