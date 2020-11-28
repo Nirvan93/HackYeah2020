@@ -10,11 +10,14 @@ public partial class PlayerController
 
     [SerializeField]
     private float _normalThrowPower = 30f;
-    [SerializeField]
-    private float _superPowerThrowPower = 80f;
 
     private PickableObject _currentlyPickedObject = null;
-    
+
+    [SerializeField]
+    private float _superPowerThrowMultiplier = 20f;
+    private bool _throwKeyPressed = false;
+    private float _throwKeyPressedTime = 0;
+
     public void PickObject(PickableObject pickable)
     {
         if(_currentlyPickedObject!=null)
@@ -28,7 +31,7 @@ public partial class PlayerController
         _currentlyPickedObject.transform.localPosition = Vector3.zero;
     }
 
-    public void ThrowObject()
+    public void ThrowObject(float throwPower)
     {
         if(_currentlyPickedObject!=null)
         {
@@ -40,9 +43,44 @@ public partial class PlayerController
             Vector3 throwDirection = (worldMousePosition - transform.position).normalized;
 
             _currentlyPickedObject.transform.SetParent(null);
-            _currentlyPickedObject.Thrown(throwDirection * (SuperStrengthPower.SuperStrengthPowerActive ? _superPowerThrowPower : _normalThrowPower));
+            _currentlyPickedObject.Thrown(throwDirection * throwPower);
             _currentlyPickedObject = null;
         }
+    }
+
+    public void ProcessThrowingInput()
+    {
+        if(!SuperStrengthPower.SuperStrengthPowerActive)
+        {
+            if (Input.GetMouseButtonDown(1))
+                ThrowObject(_normalThrowPower);
+        }
+        else
+        {
+            ProcessSuperStrengthInput();
+        }
+    }
+
+    private void ProcessSuperStrengthInput()
+    {
+        if (_throwKeyPressed)
+        {
+            _throwKeyPressedTime += Time.deltaTime;
+            if (Input.GetMouseButtonUp(1))
+            {
+                ThrowObject(_throwKeyPressedTime * _superPowerThrowMultiplier);
+               //Urwij tu łapę
+
+                _throwKeyPressed = false;
+                _throwKeyPressedTime = 0;
+            }
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            _throwKeyPressed = true;
+        }
+
     }
 
     public void PlayerWantsToPickAnyObject()
