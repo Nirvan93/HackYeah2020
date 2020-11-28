@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2acfce94c2c86cd459cddf64a3de7b67, type: 3}
   m_Name: MovementPreset-Supyr
   m_EditorClassIdentifier: 
-  MaxSpeed: 14
-  AccelerationDuration: 0.1
-  DecelerationDuration: 0.15
+  MaxSpeed: 100
+  AccelerationDuration: 0.05
+  DecelerationDuration: 0.025
   RotationSpeed: 0.25
   Gravity: 2
