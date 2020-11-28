@@ -90,10 +90,7 @@ public partial class PlayerController
 
         for (int i = 0; i < ragBodies.Count; i++)
         {
-            if (ragBodies[i].name.ToLower().Contains(name))
-            {
-                ragBodies[i].AddForce(power, ForceMode.Force);
-            }
+            ragBodies[i].AddForce(power, ForceMode.Impulse);
         }
     }
 

@@ -19,7 +19,7 @@ public partial class PlayerController
         else
             Input_Accelerate = 0f;
 
-        //if (isGrounded)
+        //if (IsGrounded)
         //    if (Input.GetKeyDown(KeyCode.Space))
         //    {
         //        triggerJumping = 8f;
@@ -31,6 +31,13 @@ public partial class PlayerController
 
         if (Input.GetMouseButtonDown(1))
             ThrowObject();
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            SwitchRagdoll(true);
+            //AddForceToRagdollBodies(Vector3.right * 10f);
+        }
+
     }
 
     public void SetJumpInput(float jumpPower)
