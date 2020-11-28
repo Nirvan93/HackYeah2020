@@ -4,17 +4,10 @@ using UnityEngine;
 
 public class BodyPartCollection : Singleton<BodyPartCollection>
 {
+    [SerializeField]
     private List<BodyPart> _bodyParts = new List<BodyPart>();
 
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        foreach(BodyPart bodyPart in GetComponentsInChildren<BodyPart>())
-        {
-            _bodyParts.Add(bodyPart);
-        }
-    }
+   
 
     public void StartClicking()
     {

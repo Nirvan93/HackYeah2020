@@ -33,6 +33,11 @@ public class BodyPart : MonoBehaviour
 
     public void OnMouseDown()
     {
+        TryClick();
+    }
+
+    public void TryClick()
+    {
         if (_canBeClicked)
             WasClicked = true;
     }
