@@ -1,49 +1,38 @@
 fileFormatVersion: 2
-guid: baab50d75f199ee4eb7ff7dd7dd893e3
+guid: ce0280b686f7f70408a13ff23410e524
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
-      74: -4952728265485529660
-    second: Door|Action
+      74: -5461081615334604454
+    second: Armature|EmptyGear3.043|Shaft|Shaft
   - first:
-      74: -3065434498450774056
-    second: Door|Cube.001Action.007
+      74: -9182215636539115561
+    second: Armature|EmptyGear3.043|Shaft|Shaft.001
   - first:
-      74: -4117834503458166301
-    second: Door|EmptyGear3.043|Shaft|Shaft
+      74: 2209220860073507383
+    second: Armature|Empty|Scene|Scene
   - first:
-      74: 5892861376712778805
-    second: Door|EmptyGear3.043|Shaft|Shaft.001
+      74: -5217024597165989934
+    second: Armature|GearStraight_Animated|Shaft|Shaft
   - first:
-      74: 8691681286071397215
-    second: Door|Empty|Scene|Scene
+      74: -298528649445508604
+    second: Armature|RollerBottom_Animated|Scene|Scene
   - first:
-      74: 1253450397753724585
-    second: Door|GearStraight_Animated|Shaft|Shaft
+      74: -2071428793445347857
+    second: Armature|RollerMiddle_Animated|Scene|Scene
   - first:
-      74: 3716639372397859002
-    second: Door|RollerBottom_Animated|Scene|Scene
+      74: -3246894870410637614
+    second: Armature|RollerTop_Animated|Scene|Scene
   - first:
-      74: 8348505979267531525
-    second: Door|RollerMiddle_Animated|Scene|Scene
-  - first:
-      74: 8862275431899656732
-    second: Door|RollerTop_Animated|Scene|Scene
-  - first:
-      74: 4832934831036479682
-    second: Door|Jump1.001
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Alien
-    second: {fileID: 2100000, guid: f95f6600682f57542b522366efd9521f, type: 2}
+      74: -4032558703003846388
+    second: Armature|Stand
+  externalObjects: {}
   materials:
     materialImportMode: 1
-    materialName: 3
+    materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -66,7 +55,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -74,11 +63,11 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importVisibility: 0
+    importVisibility: 1
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
-    fileIdsGeneration: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -89,18 +78,18 @@ ModelImporter:
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
     meshOptimizationFlags: -1
-    indexFormat: 1
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 4
-    normalCalculationMode: 0
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
@@ -123,7 +112,7 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 1
+  animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
   additionalBone: 0
