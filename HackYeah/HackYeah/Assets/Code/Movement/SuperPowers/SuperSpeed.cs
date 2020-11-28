@@ -106,6 +106,8 @@ public class SuperSpeed : MonoBehaviour
             if (i < path.Length - 1) nextPos = path[i + 1];
             else nextPos = path[i] + (path[i] - path[i - 1]);
 
+            nextPos = Vector3.LerpUnclamped(path[i], nextPos, 1.5f);
+
             Vector3 initDir = ((drawedPath[i] + off) - (startJumpPos + off)).normalized;
 
             Vector3 fromPointToPointDir;
@@ -121,16 +123,20 @@ public class SuperSpeed : MonoBehaviour
                 float progress = elapsed / OnePointMoveDur;
                 Vector3 veloPoint = Vector3.Lerp(startJumpPos, nextPos, progress);
 
-                Vector3 currentDir = (veloPoint - Player.transform.position).normalized;
-                float dot = Vector3.Dot(initDir, currentDir);
-                if (dot < 0.2f) break;
 
-                //PlayerController.Instance.Motor.RushAcceleration(Vector3.Distance(startJumpPos, veloPoint));
+                if ( (Player.transform.position - nextPos).magnitude < 1.5f )
+                {
+                    Vector3 currentDir = (nextPos - Player.transform.position).normalized;
+                    float dot = Vector3.Dot(initDir, currentDir);
+                    if (dot < 0.5f) break;
+                }
+
                 Motor.targetPos = veloPoint;
                 Motor.Update(Player.transform.position);
                 Player.OverrideVelocity(Motor.Output * 14f);
+                Player.IsGrounded = false;
 
-                if (progress > 1f) break;
+                if (progress > .9f) break;
                 yield return null;
             }
         }

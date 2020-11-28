@@ -21,4 +21,5 @@ public class LevelsManager : Singleton<LevelsManager>
     {
         SceneManager.LoadScene(sceneName);
     }
+
 }

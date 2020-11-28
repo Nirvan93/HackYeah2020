@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MovementPreset-Default
   m_EditorClassIdentifier: 
   MaxSpeed: 14
-  AccelerationDuration: 0.1
-  DecelerationDuration: 0.15
+  AccelerationDuration: 0.2
+  DecelerationDuration: 0.1
   RotationSpeed: 0.25
-  Gravity: 3
+  Gravity: 2

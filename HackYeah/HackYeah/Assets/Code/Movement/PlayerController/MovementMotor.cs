@@ -25,6 +25,12 @@ public class MovementMotor
         Output = Vector3.zero;
     }
 
+    public void SlowDown(float power)
+    {
+        motorPower = Mathf.Lerp(motorPower, 0f, Time.deltaTime * power);
+        targetAcceleration = Vector3.Lerp(targetAcceleration, Vector3.zero, Time.deltaTime * power);
+    }
+
 
     public void RushAcceleration(float amount)
     {

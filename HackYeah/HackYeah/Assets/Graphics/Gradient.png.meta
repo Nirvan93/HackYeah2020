@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 714bea11c56752f4db8440d65221a21a
+=======
+guid: 15433e4e1b2fd174f96cb381447b91e1
+>>>>>>> 72c9148cc733b3e42142b42094053a668120518d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -57,14 +61,34 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+<<<<<<< HEAD
   applyGammaDecoding: 0
+=======
+  applyGammaDecoding: 1
+>>>>>>> 72c9148cc733b3e42142b42094053a668120518d
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
+<<<<<<< HEAD
     textureCompression: 1
+=======
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+>>>>>>> 72c9148cc733b3e42142b42094053a668120518d
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0

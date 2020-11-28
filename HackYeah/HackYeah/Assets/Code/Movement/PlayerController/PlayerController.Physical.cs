@@ -55,23 +55,30 @@ public partial class PlayerController
             else
                 rigbody.useGravity = false;
 
-
-            // Jumping -----------------------
-            if (triggerJumping != 0f)
+            if (IsGrounded)
             {
-                targetVelo.y = triggerJumping;
-                rigbody.MovePosition(rigbody.position + transform.up * triggerJumping * 0.01f);
-                OnJump();
-                triggerJumping = 0f;
-                IsGrounded = false;
+                // Jumping -----------------------
+                if (triggerJumping != 0f)
+                {
+                    targetVelo.y = triggerJumping;
+                    rigbody.MovePosition(rigbody.position + transform.up * triggerJumping * 0.01f);
+                    OnJump();
+                    triggerJumping = 0f;
+                    IsGrounded = false;
+                }
+                else targetVelo.y = velocityMemory.y;
+
+                // Apply -----------------------
+                if (!IsGrounded || targetVelo.sqrMagnitude > Preset.MaxSpeed * 0.2f) capsuleCollider.material = MSlide; else capsuleCollider.material = MFriction;
+
+                rigbody.velocity = targetVelo;
+                rigbody.angularVelocity = ToAngularVelocity(currentRotation * Quaternion.Inverse(rigbody.rotation)) / (Time.fixedDeltaTime * 5f);
             }
-            else targetVelo.y = velocityMemory.y;
+            else
+            {
+                rigbody.AddForce(targetVelo * 3f, ForceMode.Acceleration);
+            }
 
-            // Apply -----------------------
-            if (!IsGrounded || targetVelo.sqrMagnitude > Preset.MaxSpeed * 0.2f) capsuleCollider.material = MSlide; else capsuleCollider.material = MFriction;
-
-            rigbody.velocity = targetVelo;
-            rigbody.angularVelocity = ToAngularVelocity(currentRotation * Quaternion.Inverse(rigbody.rotation)) / Time.fixedDeltaTime;
         }
 
         previousVelo2 = previousVelo;
@@ -84,11 +91,18 @@ public partial class PlayerController
         if (collision != null)
             if (collision.contacts.Length > 0)
             {
+                float relDot = Vector3.Dot(collision.relativeVelocity.normalized, collision.contacts[0].normal);
+                Debug.Log("rel dot = " + relDot);
                 Debug.Log("rel velo = " + collision.relativeVelocity + " magn = " + collision.relativeVelocity.magnitude);
-                if (collision.relativeVelocity.magnitude > KillVelocity)
+
+                //if (relDot > 0.3f && relDot < 0.7f) { }
+                //else
                 {
-                    SwitchRagdoll(true);
-                    AddForceToRagdollBodies(-collision.relativeVelocity * 2f);
+                    if (collision.relativeVelocity.magnitude > KillVelocity)
+                    {
+                        SwitchRagdoll(true);
+                        AddForceToRagdollBodies(-collision.relativeVelocity * 2f);
+                    }
                 }
 
                 if (!IsGrounded)
@@ -109,5 +123,10 @@ public partial class PlayerController
         float angle; Vector3 axis;
         deltaRotation.ToAngleAxis(out angle, out axis);
         return axis * (angle * Mathf.Deg2Rad);
+    }
+
+    public Vector3 GetVelocity()
+    {
+        return rigbody.velocity;
     }
 }
