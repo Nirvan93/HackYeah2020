@@ -48,7 +48,12 @@ ModelImporter:
   - first:
       74: 786504323170427181
     second: Armature|T-Pose
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: 91f4205e1c0eb4146a7bd1a023b61523, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
