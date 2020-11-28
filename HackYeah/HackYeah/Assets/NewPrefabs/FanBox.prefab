@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1696715720211959053}
   - component: {fileID: 7087259650983587990}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FanBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 1785186422711749722}
   - component: {fileID: 7287896508977269417}
   - component: {fileID: 5976634303383578139}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 2619921752133765443}
   - component: {fileID: 6803533343145524358}
   - component: {fileID: 5976634303383578132}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FanBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

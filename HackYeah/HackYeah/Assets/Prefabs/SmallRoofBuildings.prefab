@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2761001863791072515}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SmallRoofBuildings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5955506766908459501}
   - component: {fileID: 8809480143018989339}
   - component: {fileID: 8796864205200449068}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SmallRoofBuilding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 5885546827465130633}
   - component: {fileID: 6494099847934226484}
   - component: {fileID: 4544177467657403210}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,5 +1,139 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &176849715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 176849716}
+  - component: {fileID: 176849722}
+  - component: {fileID: 176849721}
+  - component: {fileID: 176849720}
+  - component: {fileID: 176849719}
+  - component: {fileID: 176849718}
+  - component: {fileID: 176849717}
+  m_Layer: 0
+  m_Name: SuperPowers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &176849716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176849715}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 2.1799998, z: -0.6600006}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4779444947587869381}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &176849722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176849715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7852835df3fd8974dab3b30dd025db39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _allSuperPowers:
+  - {fileID: 176849721}
+  - {fileID: 176849719}
+  - {fileID: 176849720}
+  - {fileID: 176849718}
+  - {fileID: 176849717}
+  _playerController: {fileID: 0}
+--- !u!114 &176849721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176849715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0a2bd54f272494e8bb51b83bdab00f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SuperPowerType: 1
+  KeyCodeToActivate: 49
+  IsAvailable: 1
+  _jumpKeyCode: 32
+  _normalJumpPower: 13
+  _superJumpPowerMultiplier: 70
+--- !u!114 &176849720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176849715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ddbc30fff7c83449b033f5816947a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SuperPowerType: 0
+  KeyCodeToActivate: 50
+  IsAvailable: 1
+--- !u!114 &176849719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176849715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ad0e04f3063e646a3f32b80d117910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SuperPowerType: 4
+  KeyCodeToActivate: 51
+  IsAvailable: 1
+--- !u!114 &176849718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176849715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f6ced64539b2f147a08fe7f14ab20dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SuperPowerType: 2
+  KeyCodeToActivate: 52
+  IsAvailable: 1
+  _teleportTime: 4
+--- !u!114 &176849717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176849715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6fcfd0947b04742890ff2584796091, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SuperPowerType: 7
+  KeyCodeToActivate: 53
+  IsAvailable: 1
 --- !u!1 &32096034085961735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,6 +2038,7 @@ Transform:
   - {fileID: 6761793416018978664}
   - {fileID: 8057522853596407412}
   - {fileID: 5033131738844464872}
+  - {fileID: 176849716}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -1977,9 +2112,9 @@ MonoBehaviour:
   Preset: {fileID: 11400000, guid: 30a6b4a8f0c687942bca2584f66fe63c, type: 2}
   MFriction: {fileID: 13400000, guid: 2d934572826ac664aa94739e1587dddb, type: 2}
   MSlide: {fileID: 13400000, guid: 8ccff03ad1391ef4aad1d905f646c8df, type: 2}
-  _handTransform: {fileID: 0}
+  _handTransform: {fileID: 2970762811964384588}
   _normalThrowPower: 30
-  _superPowerThrowMultiplier: 20
+  _superPowerThrowMultiplier: 80
 --- !u!1 &5330987016405368726
 GameObject:
   m_ObjectHideFlags: 0

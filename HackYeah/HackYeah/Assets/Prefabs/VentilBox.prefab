@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5677400118729513508}
   - component: {fileID: 7579235028227518190}
   - component: {fileID: 3662894294417844106}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VentilBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
