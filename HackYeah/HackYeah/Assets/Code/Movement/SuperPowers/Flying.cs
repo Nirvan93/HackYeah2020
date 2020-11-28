@@ -18,10 +18,10 @@ public class Flying : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            EnableFly(!EnableFlying);
-        }
+        //if (Input.GetKeyDown(KeyCode.F))
+        //{
+        //    EnableFly(!EnableFlying);
+        //}
 
         if (!EnableFlying) return;
 
