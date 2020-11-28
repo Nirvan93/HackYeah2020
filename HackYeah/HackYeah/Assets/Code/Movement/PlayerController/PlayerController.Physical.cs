@@ -100,6 +100,9 @@ public partial class PlayerController
                 {
                     if (collision.relativeVelocity.magnitude > KillVelocity)
                     {
+                        TCameraController.Instance.ScreenShake(collision.relativeVelocity.magnitude / 5f, 0.194f + collision.relativeVelocity.magnitude /111f);
+
+
                         SwitchRagdoll(true,true);
                         AddForceToRagdollBodies(-collision.relativeVelocity * 2f);
                     }

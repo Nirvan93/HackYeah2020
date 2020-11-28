@@ -14,6 +14,11 @@ public class BodyPart : MonoBehaviour
 
     private bool _canBeClicked = false;
 
+    private void Start()
+    {
+        if (_joint == null) _joint = GetComponent<CharacterJoint>();
+    }
+
     public void StartTakingClickInput()
     {
         WasClicked = false;

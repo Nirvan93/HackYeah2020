@@ -16,9 +16,11 @@ public partial class AlienController : MonoBehaviour
     private float _shotTimer = 0;
     private float _nextShotTime = 0;
 
+
     public void Start()
     {
         _nextShotTime = _shotIntervalRange.GetRandomValueInRange();
+        InitRagdoll();
     }
 
     public void Update()
@@ -29,6 +31,9 @@ public partial class AlienController : MonoBehaviour
         {
             Shoot();
         }
+
+        if (Input.GetKeyDown(KeyCode.C))
+            AddForceToRagdollBodies(Vector3.right * 31f);
     }
 
     private void Shoot()
