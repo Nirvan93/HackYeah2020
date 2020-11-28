@@ -24,15 +24,24 @@ public partial class PlayerController
         //        triggerJumping = 15f;
 
         //Objects
+        if (SearchForPickablesNearPlayer() != null)
+            UIPickableHint.Instance.hint.enabled = true;
+        else
+            UIPickableHint.Instance.hint.enabled = false;
+
         if (Input.GetKeyDown(KeyCode.E))
             PlayerWantsToPickAnyObject();
 
         ProcessThrowingInput();
-   
+
+        if (_currentlyPickedObject != null)
+            UIThrowHint.Instance.hint.enabled = true;
+        else
+            UIThrowHint.Instance.hint.enabled = false;
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            SwitchRagdoll(true,true);
+            SwitchRagdoll(true, true);
             //AddForceToRagdollBodies(Vector3.right * 10f);
         }
 
