@@ -29,10 +29,12 @@ public partial class AlienController
             }
         }
 
+        Collider cc = GetComponent<Collider>();
         for (int i = 0; i < ragBodies.Count; i++)
         {
             CharacterJoint joint = ragBodies[i].GetComponent<CharacterJoint>();
             if (joint != null) joint.breakForce = BreakJointForce;
+            if (cc) Physics.IgnoreCollision(cc, ragColliders[i]);
         }
 
         GetChest().GetComponent<CharacterJoint>().breakForce = Mathf.Infinity;
@@ -55,14 +57,18 @@ public partial class AlienController
 
     public Transform SkelRoot;
     public float BreakJointForce = 10f;
+    private bool ragg = false;
     public void SwitchRagdoll(bool turnOnRagdolling, bool isDead)
     {
+        ragg = turnOnRagdolling;
+
         if (SkelRoot) SkelRoot.gameObject.SetActive(turnOnRagdolling);
 
 
         for (int i = 0; i < ragColliders.Count; i++)
         {
-            ragColliders[i].enabled = turnOnRagdolling;
+            //ragColliders[i].enabled = turnOnRagdolling;
+            ragBodies[i].velocity = Vector3.down * 0.4f;
         }
 
         GetComponent<Animator>().enabled = !turnOnRagdolling;
@@ -79,7 +85,7 @@ public partial class AlienController
 
     public void AddForceToRagdollBodies(Vector3 power)
     {
-        if (SkelRoot.gameObject.activeInHierarchy == false) SwitchRagdoll(true, false);
+        SwitchRagdoll(true, false);
 
         for (int i = 0; i < ragBodies.Count; i++)
         {
@@ -98,5 +104,24 @@ public partial class AlienController
         }
 
         return null;
+    }
+
+    private void FixedUpdate()
+    {
+        if (!ragg)
+            for (int i = 0; i < ragBodies.Count; i++)
+            {
+                ragBodies[i].velocity = Vector3.zero;
+            }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.relativeVelocity.magnitude > 12f)
+        {
+            AddForceToRagdollBodies(collision.relativeVelocity);
+            TCameraController.Instance.ScreenShake(collision.relativeVelocity.magnitude / 5f, 0.15f);
+        }
+        Debug.Log("Enter " + collision.relativeVelocity);
     }
 }
