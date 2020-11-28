@@ -54,7 +54,7 @@ MonoBehaviour:
   - {fileID: 176849720}
   - {fileID: 176849718}
   - {fileID: 176849717}
-  _playerController: {fileID: 0}
+  _playerController: {fileID: 5033131738370966430}
 --- !u!114 &176849721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SuperPowerType: 2
   KeyCodeToActivate: 52
-  IsAvailable: 1
+  IsAvailable: 0
   _teleportTime: 4
 --- !u!114 &176849717
 MonoBehaviour:
@@ -134,6 +134,7 @@ MonoBehaviour:
   SuperPowerType: 7
   KeyCodeToActivate: 53
   IsAvailable: 1
+  _flyingController: {fileID: 0}
 --- !u!1 &32096034085961735
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,7 +245,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91f4205e1c0eb4146a7bd1a023b61523, type: 2}
+  - {fileID: 2100000, guid: 4924b25d2cbe8494c89f646248f2fc0e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -348,7 +349,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91f4205e1c0eb4146a7bd1a023b61523, type: 2}
+  - {fileID: 2100000, guid: a9dacd5c5bbeaab41bbb3b9ebb0f1a2f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -557,6 +558,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LimbId: 4
   WasClicked: 0
+  Particles: {fileID: 8367398285432998629, guid: 4c668d1cfe622894d98247c78057992b,
+    type: 3}
+  Explosion: {fileID: 4145723720999715173, guid: 35f3cbe803814dc40abd295859cb439f,
+    type: 3}
   _joint: {fileID: 5033131737353073976}
 --- !u!1 &1483344029203090219
 GameObject:
@@ -668,7 +673,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91f4205e1c0eb4146a7bd1a023b61523, type: 2}
+  - {fileID: 2100000, guid: a9dacd5c5bbeaab41bbb3b9ebb0f1a2f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -878,6 +883,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LimbId: 1
   WasClicked: 0
+  Particles: {fileID: 8367398285432998629, guid: 4c668d1cfe622894d98247c78057992b,
+    type: 3}
+  Explosion: {fileID: 4145723720999715173, guid: 35f3cbe803814dc40abd295859cb439f,
+    type: 3}
   _joint: {fileID: 5033131738176170804}
 --- !u!1 &2629223514676015121
 GameObject:
@@ -1068,6 +1077,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LimbId: 3
   WasClicked: 0
+  Particles: {fileID: 8367398285432998629, guid: 4c668d1cfe622894d98247c78057992b,
+    type: 3}
+  Explosion: {fileID: 4145723720999715173, guid: 35f3cbe803814dc40abd295859cb439f,
+    type: 3}
   _joint: {fileID: 5033131737923754835}
 --- !u!1 &2711065961567561307
 GameObject:
@@ -1118,7 +1131,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91f4205e1c0eb4146a7bd1a023b61523, type: 2}
+  - {fileID: 2100000, guid: a9dacd5c5bbeaab41bbb3b9ebb0f1a2f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1222,7 +1235,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91f4205e1c0eb4146a7bd1a023b61523, type: 2}
+  - {fileID: 2100000, guid: a9dacd5c5bbeaab41bbb3b9ebb0f1a2f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1464,6 +1477,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LimbId: 8
   WasClicked: 0
+  Particles: {fileID: 8367398285432998629, guid: 4c668d1cfe622894d98247c78057992b,
+    type: 3}
+  Explosion: {fileID: 4145723720999715173, guid: 35f3cbe803814dc40abd295859cb439f,
+    type: 3}
   _joint: {fileID: 5033131737906756343}
 --- !u!1 &4160519102364924162
 GameObject:
@@ -1649,7 +1666,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91f4205e1c0eb4146a7bd1a023b61523, type: 2}
+  - {fileID: 2100000, guid: 4924b25d2cbe8494c89f646248f2fc0e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1828,6 +1845,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LimbId: 14
   WasClicked: 0
+  Particles: {fileID: 8367398285432998629, guid: 4c668d1cfe622894d98247c78057992b,
+    type: 3}
+  Explosion: {fileID: 4145723720999715173, guid: 35f3cbe803814dc40abd295859cb439f,
+    type: 3}
   _joint: {fileID: 5033131737623593288}
 --- !u!1 &4970653354833819395
 GameObject:
@@ -1878,7 +1899,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91f4205e1c0eb4146a7bd1a023b61523, type: 2}
+  - {fileID: 2100000, guid: a9dacd5c5bbeaab41bbb3b9ebb0f1a2f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2183,10 +2204,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b884fd1512b87c47a5f6f327c95563b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ToGlow: {fileID: 2100000, guid: 91f4205e1c0eb4146a7bd1a023b61523, type: 2}
+  ToGlow: {fileID: 2100000, guid: a9dacd5c5bbeaab41bbb3b9ebb0f1a2f, type: 2}
   IsGrounded: 0
   SwitchOffGravity: 0
-  KillVelocity: 20
+  KillVelocity: 30
   SkelRoot: {fileID: 4531512420147493467}
   BreakJointForce: 4100
   Preset: {fileID: 11400000, guid: 30a6b4a8f0c687942bca2584f66fe63c, type: 2}
@@ -2319,6 +2340,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LimbId: 10
   WasClicked: 0
+  Particles: {fileID: 8367398285432998629, guid: 4c668d1cfe622894d98247c78057992b,
+    type: 3}
+  Explosion: {fileID: 4145723720999715173, guid: 35f3cbe803814dc40abd295859cb439f,
+    type: 3}
   _joint: {fileID: 5033131738684298843}
 --- !u!1 &5550877429200103750
 GameObject:
@@ -2369,7 +2394,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91f4205e1c0eb4146a7bd1a023b61523, type: 2}
+  - {fileID: 2100000, guid: 4924b25d2cbe8494c89f646248f2fc0e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2504,7 +2529,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91f4205e1c0eb4146a7bd1a023b61523, type: 2}
+  - {fileID: 2100000, guid: 4924b25d2cbe8494c89f646248f2fc0e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2683,6 +2708,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LimbId: 16
   WasClicked: 0
+  Particles: {fileID: 8367398285432998629, guid: 4c668d1cfe622894d98247c78057992b,
+    type: 3}
+  Explosion: {fileID: 4145723720999715173, guid: 35f3cbe803814dc40abd295859cb439f,
+    type: 3}
   _joint: {fileID: 5033131738689815954}
 --- !u!1 &6090080923108041809
 GameObject:
@@ -2795,7 +2824,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91f4205e1c0eb4146a7bd1a023b61523, type: 2}
+  - {fileID: 2100000, guid: 4924b25d2cbe8494c89f646248f2fc0e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2930,7 +2959,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91f4205e1c0eb4146a7bd1a023b61523, type: 2}
+  - {fileID: 2100000, guid: 4924b25d2cbe8494c89f646248f2fc0e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3034,7 +3063,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91f4205e1c0eb4146a7bd1a023b61523, type: 2}
+  - {fileID: 2100000, guid: 4924b25d2cbe8494c89f646248f2fc0e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3244,6 +3273,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LimbId: 13
   WasClicked: 0
+  Particles: {fileID: 8367398285432998629, guid: 4c668d1cfe622894d98247c78057992b,
+    type: 3}
+  Explosion: {fileID: 4145723720999715173, guid: 35f3cbe803814dc40abd295859cb439f,
+    type: 3}
   _joint: {fileID: 5033131739272886510}
 --- !u!1 &7752439553625617043
 GameObject:
@@ -3369,6 +3402,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LimbId: 2
   WasClicked: 0
+  Particles: {fileID: 8367398285432998629, guid: 4c668d1cfe622894d98247c78057992b,
+    type: 3}
+  Explosion: {fileID: 4145723720999715173, guid: 35f3cbe803814dc40abd295859cb439f,
+    type: 3}
   _joint: {fileID: 5033131738853932270}
 --- !u!1 &7823327603784431491
 GameObject:
@@ -3419,7 +3456,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91f4205e1c0eb4146a7bd1a023b61523, type: 2}
+  - {fileID: 2100000, guid: a9dacd5c5bbeaab41bbb3b9ebb0f1a2f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3769,4 +3806,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LimbId: 15
   WasClicked: 0
+  Particles: {fileID: 8367398285432998629, guid: 4c668d1cfe622894d98247c78057992b,
+    type: 3}
+  Explosion: {fileID: 4145723720999715173, guid: 35f3cbe803814dc40abd295859cb439f,
+    type: 3}
   _joint: {fileID: 5033131738021979638}
