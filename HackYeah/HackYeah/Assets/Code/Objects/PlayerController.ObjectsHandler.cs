@@ -92,7 +92,7 @@ public partial class PlayerController
 
     public PickableObject SearchForPickablesNearPlayer()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 4);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 3);
 
         foreach (var hitCollider in hitColliders)
         {
