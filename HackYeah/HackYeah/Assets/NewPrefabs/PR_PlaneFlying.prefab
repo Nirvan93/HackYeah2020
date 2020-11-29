@@ -530,9 +530,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 206a49d01959c434bb0b9559c5d74668, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Left: {x: -15.4, y: 0, z: 0}
-  Right: {x: 23.3, y: 0, z: 0}
-  Speed: 1
+  Left: {x: -64.14, y: 0, z: 0}
+  Right: {x: 72.1, y: 0, z: 0}
+  Speed: 3
 --- !u!136 &1614168094366843916
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -573,16 +573,16 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ac032ad0e66caa844bd0a9c9b9089fb9, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.582
+  m_Volume: 0.092
   m_Pitch: 0.84
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 113
   DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 4.937641
+  MaxDistance: 1.29
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
