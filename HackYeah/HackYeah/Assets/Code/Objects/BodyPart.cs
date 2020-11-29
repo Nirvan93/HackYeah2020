@@ -56,7 +56,7 @@ public class BodyPart : MonoBehaviour
         if (Particles != null)
         {
             //Particles.SetActive(true);
-            GameObject particles = Instantiate(Particles, transform.position, transform.rotation * Quaternion.Euler(90f,0f,0f));
+            GameObject particles = Instantiate(Particles, transform.position, transform.rotation * Quaternion.Euler(90f, 0f, 0f));
             particles.transform.SetParent(transform, true);
             particles.transform.localScale = Vector3.one;
 
@@ -67,5 +67,16 @@ public class BodyPart : MonoBehaviour
                 GameObject explosion = Instantiate(Explosion, transform.position, Quaternion.identity);
             }
         }
+    }
+
+    private static float lastPlayed = -1999f;
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (Time.time - lastPlayed > 0.1f)
+            if (collision.relativeVelocity.magnitude > 3)
+            {
+                lastPlayed = Time.time;
+                PlayerAudio.Instance.PlayAudio(PlayerAudio.Instance.Steps);
+            }
     }
 }
