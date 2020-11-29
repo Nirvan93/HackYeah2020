@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.AssetImporters;
 using UnityEngine;
 
 public partial class PlayerController
@@ -107,7 +106,11 @@ public partial class PlayerController
                     {
                         TCameraController.Instance.ScreenShake(1f + collision.relativeVelocity.magnitude / 14f, 0.1f + collision.relativeVelocity.magnitude / 250f);
                         SwitchRagdoll(true, true);
-                        AddForceToRagdollBodies(-collision.relativeVelocity * 2f);
+
+                        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Bullets"))
+                            AddForceToRagdollBodies(collision.relativeVelocity * 1.4f);
+                        else
+                            AddForceToRagdollBodies(-collision.relativeVelocity * 2f);
                     }
                 }
 

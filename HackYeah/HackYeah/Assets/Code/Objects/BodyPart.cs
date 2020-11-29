@@ -8,6 +8,7 @@ public class BodyPart : MonoBehaviour
     public bool WasClicked = false;
     public GameObject Particles;
     public GameObject Explosion;
+    public EnemyAlienAudio EnemyAttached;
 
     [SerializeField]
     private CharacterJoint _joint;
@@ -60,7 +61,10 @@ public class BodyPart : MonoBehaviour
             particles.transform.SetParent(transform, true);
             particles.transform.localScale = Vector3.one;
 
-            PlayerAudio.Instance.PlayAudio(PlayerAudio.Instance.BreakBone);
+            if (!EnemyAttached)
+                PlayerAudio.Instance.PlayAudio(PlayerAudio.Instance.BreakBone);
+            else
+                EnemyAttached.PlayAudioSfx(EnemyAttached.BreakBone);
 
             if (Explosion != null)
             {
@@ -76,7 +80,10 @@ public class BodyPart : MonoBehaviour
             if (collision.relativeVelocity.magnitude > 3)
             {
                 lastPlayed = Time.time;
-                PlayerAudio.Instance.PlayAudio(PlayerAudio.Instance.Steps);
+                if (!EnemyAttached)
+                    PlayerAudio.Instance.PlayAudio(PlayerAudio.Instance.Steps);
+                else
+                    EnemyAttached.PlayAudioSfx(EnemyAttached.Steps);
             }
     }
 }

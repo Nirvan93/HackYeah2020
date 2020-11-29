@@ -72,8 +72,8 @@ public partial class AlienController
         }
 
         GetComponent<Animator>().enabled = !turnOnRagdolling;
-        if (isDead)
-            GameUiController.Instance.ShowFadingUI();
+
+        if (audio) audio.PlayAudioSfx(audio.Pain);
     }
 
 
@@ -117,11 +117,12 @@ public partial class AlienController
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.relativeVelocity.magnitude > 12f)
-        {
-            AddForceToRagdollBodies(collision.relativeVelocity);
-            TCameraController.Instance.ScreenShake(collision.relativeVelocity.magnitude / 5f, 0.15f);
-        }
-        Debug.Log("Enter " + collision.relativeVelocity);
+        if (!ragg)
+            if (collision.relativeVelocity.magnitude > 12f)
+            {
+                AddForceToRagdollBodies(collision.relativeVelocity);
+                TCameraController.Instance.ScreenShake(collision.relativeVelocity.magnitude / 5f, 0.15f);
+            }
+        //Debug.Log("Enter " + collision.relativeVelocity);
     }
 }

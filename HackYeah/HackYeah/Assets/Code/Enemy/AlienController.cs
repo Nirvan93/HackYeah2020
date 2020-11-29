@@ -16,24 +16,53 @@ public partial class AlienController : MonoBehaviour
     private float _shotTimer = 0;
     private float _nextShotTime = 0;
 
+    EnemyAlienAudio audio;
+
 
     public void Start()
     {
         _nextShotTime = _shotIntervalRange.GetRandomValueInRange();
         InitRagdoll();
+        audio = GetComponent<EnemyAlienAudio>();
     }
-
     public void Update()
     {
         _shotTimer += Time.deltaTime;
 
-        if(_shotTimer>=_nextShotTime)
+        if (_shotTimer >= _nextShotTime)
         {
             Shoot();
         }
 
-        if (Input.GetKeyDown(KeyCode.C))
-            AddForceToRagdollBodies(Vector3.right * 31f);
+        if (_shotPoint)
+        {
+            if (!ragg)
+            {
+                float dist = Vector3.Distance(transform.position, PlayerController.Instance.transform.position);
+                if (dist < 25f)
+                {
+                    Quaternion targetRot = LookRotation((PlayerController.Instance.GetChest().transform.position + Vector3.up * 3.25f) - _shotPoint.position);
+                    _shotPoint.parent.transform.rotation = Quaternion.Slerp(_shotPoint.parent.transform.rotation, targetRot, Time.deltaTime * 1f);
+                
+                }
+            }
+                //_shotPoint.transform.parent.transform.rotation = Quaternion.Euler(pistolOff) *
+            //Quaternion.LookRotation();
+        }
+
+        //if (Input.GetKeyDown(KeyCode.C))
+        //    AddForceToRagdollBodies(Vector3.right * 31f);
+    }
+
+    public Quaternion LookRotation(Vector3 direction)
+    {
+        Quaternion fromTo = Quaternion.FromToRotation
+        (
+            _shotPoint.parent.transform.TransformDirection(_shotPoint.localPosition).normalized,
+            (direction).normalized
+        );
+
+        return fromTo * _shotPoint.parent.transform.rotation;
     }
 
     private void Shoot()
