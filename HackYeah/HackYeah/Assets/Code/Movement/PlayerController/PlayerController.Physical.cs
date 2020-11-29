@@ -108,7 +108,7 @@ public partial class PlayerController
                         SwitchRagdoll(true, true);
 
                         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Bullets"))
-                            AddForceToRagdollBodies(collision.relativeVelocity * 1.4f);
+                            AddForceToRagdollBodies(collision.relativeVelocity * 0.75f);
                         else
                             AddForceToRagdollBodies(-collision.relativeVelocity * 2f);
                     }
