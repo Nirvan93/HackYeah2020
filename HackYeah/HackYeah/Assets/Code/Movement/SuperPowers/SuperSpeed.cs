@@ -7,7 +7,7 @@ public class SuperSpeed : MonoBehaviour
     public static PlayerController Player { get { return PlayerController.Instance; } }
 
     public float MaxDrawingTime = 4f;
-    public float DrawPointInterval = 0.25f;
+    public float DrawPointInterval = 0.1f;
     public float OnePointMoveDur = 0.05f;
     public LineRenderer line;
     public MovementMotor Motor;
@@ -18,10 +18,13 @@ public class SuperSpeed : MonoBehaviour
     private int drawingPoints = 0;
 
     private List<Vector3> drawedPath;
+    private AudioSource src;
 
     public void Start()
     {
         drawedPath = new List<Vector3>();
+        OnePointMoveDur = 0.085f;
+        src = GetComponent<AudioSource>();
     }
 
     public void Update()
@@ -37,6 +40,12 @@ public class SuperSpeed : MonoBehaviour
         {
             if (Input.GetMouseButtonUp(0)) StopDrawing();
             else UpdateDrawing();
+        }
+
+        if (src)
+        {
+            if (src.volume > 0f) src.volume -= Time.deltaTime * 1.6f;
+            src.pitch = Mathf.Lerp(src.pitch, Player.R.velocity.magnitude * Time.fixedDeltaTime * 2.25f, Time.deltaTime * 4f);
         }
     }
 
@@ -57,6 +66,7 @@ public class SuperSpeed : MonoBehaviour
             drawedPath.Add(GetCursorPosition());
             drawingPoints++;
         }
+
 
         if (drawElapsed > MaxDrawingTime) StopDrawing();
     }
@@ -142,6 +152,12 @@ public class SuperSpeed : MonoBehaviour
                 Motor.Update(Player.transform.position);
                 Player.OverrideVelocity(Motor.Output * 14f);
                 Player.IsGrounded = false;
+
+                if (src)
+                {
+                    if (src.volume < 0.4f)
+                        src.volume += stepLength * Time.deltaTime * 4.25f;
+                }
 
                 if (progress > .9f) break;
                 yield return null;
