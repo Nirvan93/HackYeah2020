@@ -11,7 +11,6 @@ public class PickableObject : MonoBehaviour
 
     public void Start()
     {
-        gameObject.layer = LayerMask.NameToLayer("Throwable");
         foreach(Collider coll in GetComponentsInChildren<Collider>())
         {
             _objectColliders.Add(coll);
@@ -23,6 +22,7 @@ public class PickableObject : MonoBehaviour
 
     public void PickedUp()
     {
+        gameObject.layer = LayerMask.NameToLayer("Throwable");
         _objectRigidbody.isKinematic = true;
         _objectRigidbody.useGravity = false;
         SwitchColliders(false);
@@ -38,6 +38,7 @@ public class PickableObject : MonoBehaviour
 
     public void Thrown(Vector3 throwVelocity)
     {
+        gameObject.layer = LayerMask.NameToLayer("Throwable");
         _objectRigidbody.isKinematic = false;
         _objectRigidbody.useGravity = true;
         _objectRigidbody.velocity = throwVelocity;
