@@ -5,7 +5,6 @@ using UnityEngine;
 public class SoundTrigger : MonoBehaviour
 {
     public GameObject PlayAudioPosition;
-    EnemyAlienAudio audio;
     public List<AudioClip> AudioList;
             
     private void OnTriggerEnter(Collider other)
@@ -14,7 +13,6 @@ public class SoundTrigger : MonoBehaviour
         AudioController.GetClip(AudioList);
 
         int selected = Random.Range(0, AudioList.Count);
-
-        AudioController.PlayAudio(AudioList[selected], PlayAudioPosition.transform.position);
+        AudioSource.PlayClipAtPoint(AudioList[selected], PlayAudioPosition.transform.position);
     }
 }
