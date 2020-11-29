@@ -27,6 +27,11 @@ public partial class AlienController : MonoBehaviour
     }
     public void Update()
     {
+        float dist = Vector3.Distance(transform.position, PlayerController.Instance.transform.position);
+
+
+        if (dist > 50) return;
+        
         _shotTimer += Time.deltaTime;
 
         if (_shotTimer >= _nextShotTime)
@@ -38,15 +43,14 @@ public partial class AlienController : MonoBehaviour
         {
             if (!ragg)
             {
-                float dist = Vector3.Distance(transform.position, PlayerController.Instance.transform.position);
                 if (dist < 25f)
                 {
                     Quaternion targetRot = LookRotation((PlayerController.Instance.GetChest().transform.position + Vector3.up * 3.25f) - _shotPoint.position);
                     _shotPoint.parent.transform.rotation = Quaternion.Slerp(_shotPoint.parent.transform.rotation, targetRot, Time.deltaTime * 1f);
-                
+
                 }
             }
-                //_shotPoint.transform.parent.transform.rotation = Quaternion.Euler(pistolOff) *
+            //_shotPoint.transform.parent.transform.rotation = Quaternion.Euler(pistolOff) *
             //Quaternion.LookRotation();
         }
 

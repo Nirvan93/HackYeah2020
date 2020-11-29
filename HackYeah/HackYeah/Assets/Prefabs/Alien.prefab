@@ -1481,8 +1481,7 @@ MonoBehaviour:
   _shotPoint: {fileID: 2511530148648589332}
   _bulletPrefab: {fileID: 7792769463662742123, guid: dbf9be386d4354f4e91459afe8bbc6ea,
     type: 3}
-  _shotIntervalRange: {x: 1.45, y: 3.5}
-  pistolOff: {x: 0, y: 0, z: 0}
+  _shotIntervalRange: {x: 1.65, y: 4.25}
 --- !u!54 &782302314
 Rigidbody:
   m_ObjectHideFlags: 0

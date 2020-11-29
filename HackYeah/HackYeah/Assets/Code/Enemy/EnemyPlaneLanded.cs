@@ -129,6 +129,23 @@ public class EnemyPlaneLanded : MonoBehaviour
         Gizmos.DrawRay(transform.position, Vector3.down * GroundedDistance);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.contacts[0].otherCollider.gameObject.tag == "Player")
+        {
+            float dot =
+            Vector3.Dot(collision.contacts[0].normal, Vector3.up);
+
+            if (targetVelocity.y < 0f)
+                if (dot > 0.5f)
+                    PlayerController.Instance.AddForceToRagdollBodies(targetVelocity * 100f);
+            //if (collision.contacts[0].otherCollider.attachedRigidbody)
+            //{
+            //    collision.contacts[0].otherCollider.attachedRigidbody.AddForce(targetVelocity*10f, ForceMode.Impulse);
+            //}
+        }
+    }
+
     public IEnumerator IStanding()
     {
         isCoroutineWorking = true;
