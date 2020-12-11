@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemySoundTrigger : MonoBehaviour
 {
-    //public GameObject PlayAudioPosition;
-    //public List<AudioClip> AudioList;
     public EnemyAlienAudio EnemyAudio;
     private bool odegrano = false;        
 
